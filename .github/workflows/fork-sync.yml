@@ -2,7 +2,7 @@ name: Fork Sync
 
 on:
   schedule:
-    - cron: '15 * * * *' # every 30 minutes
+    - cron: '0 0,6,12,18 * * *' # every 6 hours
   workflow_dispatch: # on button click
 
 jobs:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: tgymnich/fork-sync@v1.2.4
+      - uses: tgymnich/fork-sync@v1.4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           owner: cocoa-mhlw
