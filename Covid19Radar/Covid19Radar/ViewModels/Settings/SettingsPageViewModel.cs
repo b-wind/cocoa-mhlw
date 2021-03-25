@@ -3,6 +3,7 @@ using Acr.UserDialogs;
 using Covid19Radar.Model;
 using Covid19Radar.Resources;
 using Covid19Radar.Services;
+using Covid19Radar.Services.Logs;
 using Prism.Navigation;
 using Xamarin.Essentials;
 using Xamarin.ExposureNotifications;
@@ -12,6 +13,7 @@ namespace Covid19Radar.ViewModels
 {
     public class SettingsPageViewModel : ViewModelBase
     {
+        private readonly ILoggerService loggerService;
         private string _AppVersion;
 
         public string AppVer
@@ -19,53 +21,38 @@ namespace Covid19Radar.ViewModels
             get { return _AppVersion; }
             set { SetProperty(ref _AppVersion, value); }
         }
-        private UserDataModel _UserData;
-        public UserDataModel UserData
-        {
-            get { return _UserData; }
-            set { SetProperty(ref _UserData, value); }
-        }
 
-        private readonly ExposureNotificationService exposureNotificationService;
+        private readonly IExposureNotificationService exposureNotificationService;
+        private readonly IUserDataService userDataService;
+        private readonly IHttpDataService httpDataService;
+        private readonly ILogFileService logFileService;
+        private readonly ITermsUpdateService termsUpdateService;
 
-        private readonly UserDataService userDataService;
-        public SettingsPageViewModel(INavigationService navigationService, UserDataService userDataService, ExposureNotificationService exposureNotificationService) : base(navigationService, userDataService, exposureNotificationService)
+        public SettingsPageViewModel(INavigationService navigationService, ILoggerService loggerService, IUserDataService userDataService, IHttpDataService httpDataService, IExposureNotificationService exposureNotificationService, ILogFileService logFileService, ITermsUpdateService termsUpdateService) : base(navigationService)
         {
             Title = AppResources.SettingsPageTitle;
-            AppVer = AppInfo.VersionString;// AppSettings.Instance.AppVersion;
+            AppVer = AppInfo.VersionString;
+            this.loggerService = loggerService;
             this.userDataService = userDataService;
-            _UserData = this.userDataService.Get();
+            this.httpDataService = httpDataService;
             this.exposureNotificationService = exposureNotificationService;
+            this.logFileService = logFileService;
+            this.termsUpdateService = termsUpdateService;
         }
-
-        public ICommand OnChangeExposureNotificationState => new Command(async () =>
-        {
-            if (UserData.IsExposureNotificationEnabled)
-            {
-                await exposureNotificationService.StartExposureNotification();
-            }
-            else
-            {
-                await exposureNotificationService.StopExposureNotification();
-            }
-        });
-
-        public ICommand OnChangeNotificationState => new Command(async () =>
-        {
-            await userDataService.SetAsync(_UserData);
-        });
 
         public ICommand OnChangeResetData => new Command(async () =>
         {
+            loggerService.StartMethod();
+
             var check = await UserDialogs.Instance.ConfirmAsync(
-                Resources.AppResources.SettingsPageDialogResetText,
-                Resources.AppResources.SettingsPageDialogResetTitle,
-                Resources.AppResources.ButtonOk,
-                Resources.AppResources.ButtonCancel
+                AppResources.SettingsPageDialogResetText,
+                AppResources.SettingsPageDialogResetTitle,
+                AppResources.ButtonOk,
+                AppResources.ButtonCancel
             );
             if (check)
             {
-                UserDialogs.Instance.ShowLoading(Resources.AppResources.LoadingTextDeleting);
+                UserDialogs.Instance.ShowLoading(AppResources.LoadingTextDeleting);
 
                 if (await ExposureNotification.IsEnabledAsync())
                 {
@@ -73,15 +60,25 @@ namespace Covid19Radar.ViewModels
                 }
 
                 // Reset All Data and Optout
-                await userDataService.ResetAllDataAsync();
+                userDataService.RemoveStartDate();
+                exposureNotificationService.RemoveExposureInformation();
+                exposureNotificationService.RemoveConfiguration();
+                exposureNotificationService.RemoveLastProcessTekTimestamp();
+                termsUpdateService.RemoveAllUpdateDate();
+
+                _ = logFileService.DeleteLogsDir();
 
                 UserDialogs.Instance.HideLoading();
-                await UserDialogs.Instance.AlertAsync(Resources.AppResources.SettingsPageDialogResetCompletedText);
+                await UserDialogs.Instance.AlertAsync(AppResources.SettingsPageDialogResetCompletedText);
                 Application.Current.Quit();
                 // Application close
-                Xamarin.Forms.DependencyService.Get<ICloseApplication>().closeApplication();
+                DependencyService.Get<ICloseApplication>().closeApplication();
+
+                loggerService.EndMethod();
                 return;
             }
+
+            loggerService.EndMethod();
         });
     }
 }

@@ -27,10 +27,6 @@
     <value>உரிம ஒப்பந்தம்</value>
     <comment>ライセンス</comment>
   </data>
-  <data name="UrlPrivacyPolicy" xml:space="preserve">
-    <value>https://www.mhlw.go.jp/stf/seisakunitsuite/english_pp_00032.html</value>
-    <comment>Policy</comment>
-  </data>
   <data name="TitileUserStatusSettings" xml:space="preserve">
     <value>நிலை அமைப்புகள்</value>
     <comment>User Status Page Title</comment>
@@ -221,18 +217,6 @@
     <value>இந்த பயன்பாட்டில் வழங்கப்பட்ட செயலாக்க எண்ணை உள்ளிடுவதன் மூலம் பதிவு செய்யவும்</value>
     <comment>本アプリを用いて処理番号の登録を行います。</comment>
   </data>
-  <data name="HelpPage3Description4" xml:space="preserve">
-    <value>கடந்த 14 நாட்களுக்குள் உங்கள் ஸ்மார்ட்போனுடன் நெருங்கிய தொடர்பில் இருந்த ஸ்மார்ட்போன்கள் அறிவிப்புகளைப் பெறும்.</value>
-    <comment>あなたと14日以内に接触した人のスマホアプリに通知が届きます。（1m以内、15分以上）</comment>
-  </data>
-  <data name="HelpPage3Description5" xml:space="preserve">
-    <value>அறிவிப்புகளை அனுப்பும் போது சாதனத்திலிருந்து தற்போக்காக உருவாக்கப்பட்ட குறியீடுகள் மட்டுமே பயன்படுத்தப்படுகின்றன. தனிப்பட்ட தகவல் எதுவும் பயன்படுத்தப்படவில்லை.</value>
-    <comment>通知される情報は端末の接触符号のみです。それ以外の、氏名など個人情報や位置情報が送られることはありません。</comment>
-  </data>
-  <data name="HelpPage3Description6" xml:space="preserve">
-    <value>நேர்மறை சோதனை போது இங்கே பதிவு</value>
-    <comment>陽性情報の登録と他者への匿名通知へ</comment>
-  </data>
   <data name="SettingsPageButton1" xml:space="preserve">
     <value>உரிமம்</value>
     <comment>ライセンス…</comment>
@@ -329,25 +313,9 @@
     <value>COVID-19 நேர்மறை பயனர்களுடன் நெருக்கமான தொடர்புகளின் பட்டியல்</value>
     <comment>陽性者との接触一覧</comment>
   </data>
-  <data name="ContactedNotifyPageButton2" xml:space="preserve">
-    <value>உங்கள் அறிகுறிகளை நிரப்பவும்</value>
-    <comment>症状を入力</comment>
-  </data>
-  <data name="ContactedNotifyPageButton3" xml:space="preserve">
-    <value>தொலைபேசி ஆலோசனை மையம் மூலம் உங்கள் அறிகுறிகளைக் கூறுங்கள்</value>
-    <comment>帰国者・接触者外来に電話</comment>
-  </data>
   <data name="ContactedNotifyPageCountText" xml:space="preserve">
     <value>வாழ்க்கை நிலைகள்</value>
     <comment>件</comment>
-  </data>
-  <data name="ContactedNotifyPageDescription1" xml:space="preserve">
-    <value>உங்களுக்கு சாத்தியமான COVID-19 அறிகுறிகள் இருந்தால், கீழே உள்ள படிவத்தைப் பயன்படுத்தி அல்லது தொலைபேசி மூலம் உடல்நலப் பராமரிப்பு நிறுவனங்களைத் தொடர்பு கொள்ளவும். அறிகுறிகளைப் பொறுத்து, COVID-19 பரிசோதனை யை மேற்கொள்ள ுமாறு அறிவுறுத்தப்படுவீர்கள்.</value>
-    <comment>現在の症状などを、入力フォームまたはお電話にて、ご連絡ください。内容に応じて、帰国者・接触者外来等への受診を案内します。</comment>
-  </data>
-  <data name="ContactedNotifyPageDescription2" xml:space="preserve">
-    <value>இந்தத் திரையின் ஸ்கிரீன்ஷாட்டை தயவுசெய்து எடுத்துக் கொள்ளுங்கள். நோய் கண்டறியும் போது அதை வழங்குமாறு உங்களிடம் கேட்கப்படலாம்.</value>
-    <comment>受診の際などに必要となる場合があるため、本画面のスクリーンショットの保存をお願いいたします。</comment>
   </data>
   <data name="ContactedNotifyPageMainText" xml:space="preserve">
     <value>COVID-19 நேர்மறை பயனர்களுடன் உறுதிப்படுத்தப்பட்ட நெருக்கமான தொடர்புகளின் எண்ணிக்கை</value>
@@ -356,14 +324,6 @@
   <data name="ContactedNotifyPageTitle" xml:space="preserve">
     <value>கடந்த 14 நாட்களுக்கு நெருங்கிய தொடர்புகள்</value>
     <comment>過去14日間の接触</comment>
-  </data>
-  <data name="InqueryPageDescription1" xml:space="preserve">
-    <value>9:00-17:30 (வார இறுதி நாட்கள் மற்றும் விடுமுறை நாட்கள் தவிர)</value>
-    <comment>9:00～17:30（土・日・祝日・年末年始を除く）</comment>
-  </data>
-  <data name="InqueryPageDescription2" xml:space="preserve">
-    <value>COVID-19 தகவல் மற்றும் வளங்கள்</value>
-    <comment>新型コロナウイルス感染症対策サイト</comment>
   </data>
   <data name="InqueryPageTitle" xml:space="preserve">
     <value>ஆதரவு</value>
@@ -449,14 +409,6 @@
     <value>பதிவு செய்</value>
     <comment>登録する</comment>
   </data>
-  <data name="NotifyOtherPageDescription1" xml:space="preserve">
-    <value>"HEAlth Center Real-time Information-sharing System on COVID-19 (HER-SYS)" மூலம் உங்களுக்கு வழங்கப்பட்ட செயல்முறைக் குறியீட்டை உள்ளிடவும்.</value>
-    <comment>新型コロナウイルス感染症者等情報把握・管理支援システム（HER-SYS）から発行された処理番号を入力してください。</comment>
-  </data>
-  <data name="NotifyOtherPageDescription2" xml:space="preserve">
-    <value>கடந்த 14 நாட்களுக்குள் உங்களுடன் நெருங்கிய தொடர்பு கொண்டிருந்த பயனர்கள் அறிவிக்கப்படுவார்கள். பதிவு அநாமதேயமானது. உங்கள் பெயர் அல்லது வேறு எந்த தனிப்பட்ட தகவலையும் நீங்கள் உள்ளிட வேண்டியதில்லை. நெருங்கிய தொடர்பு இடம் பற்றிய எந்த தகவலும் பதிவு செய்யப்படவில்லை.</value>
-    <comment>過去14日間に本アプリであなたと接触した履歴のある人に通知が行きます。登録は匿名で行われ、氏名や連絡先など個人が特定される情報を登録する必要はありません。また、接触した場所の位置情報が記録や通知されることもありません。</comment>
-  </data>
   <data name="NotifyOtherPageLabel" xml:space="preserve">
     <value>ஒரு செயல்முறை குறியீட்டை எவ்வாறு பெறுவது</value>
     <comment>処理番号の取得方法</comment>
@@ -521,30 +473,6 @@
     <value>8 இலக்க குறியீட்டை உள்ளிடவும்</value>
     <comment>8桁の処理番号を入力してください</comment>
   </data>
-  <data name="SubmitConsentPageDescription1" xml:space="preserve">
-    <value>புதிய கொரோனாவைரஸ் தொற்று நோய் தகவல் மற்றும் மேலாண்மை அமைப்பில் பதிவு செய்யப்பட்ட உங்கள் மொபைல் எண் அல்லது மின்னஞ்சல் முகவரிக்கு செயலாக்க எண் அறிவிக்கப்படும் (இனி "மேலாண்மை அமைப்பு").</value>
-    <comment>新型コロナウイルス感染症等情報把握・管理システム（以下「管理システム」）に登録されたあなたの携帯電話番号又はメールアドレスに、処理番号が通知されます。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription2" xml:space="preserve">
-    <value>நீங்கள் டெர்மினலில் இந்த செயலாக்க எண்ணை உள்ளிடும் போது, டெர்மினல் அறிவிப்பு சேவையகம் வழியாக மேலாண்மை அமைப்புக்கு ஒரு விசாரணை செய்யும் செயலாக்க எண் உங்களுக்கு வழங்கப்பட்டதா என்பதை.</value>
-    <comment>あなたがこの処理番号を端末に入力することにより、端末から通知サーバーを経由して管理システムに対し、処理番号があなたに対して発行されたものか否かの照会が行われます。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription3" xml:space="preserve">
-    <value>உங்களுக்கு குறிப்பிடப்பட்ட பரிவர்த்தனை எண் உங்களுக்கு வழங்கப்பட்டதா என்பதை மேலாண்மை அமைப்பு அறிவிப்பு சேவையகத்திற்கு பதிலளிக்கும்.</value>
-    <comment>管理システムは、通知サーバーに対し、照会された処理番号があなたに対して発行されたものか否かについて回答します。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription4" xml:space="preserve">
-    <value>பரிவர்த்தனை எண் உங்களுக்கு வழங்கப்பட்டதாக நீங்கள் பதிலளித்தால், மற்ற பயனர்களின் முனையங்கள் உங்கள் டெர்மினலில் பதிவு செய்யப்பட்ட தினசரி விசையுடன் வழங்கப்படும்.</value>
-    <comment>処理番号があなたに対して発行されたものである旨の回答が行われた場合は、他の利用者の端末に、あなたの端末に記録された日次鍵が提供されます。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription5" xml:space="preserve">
-    <value>14 நாட்களுக்குள் நீங்கள் உங்களைத் தொடர்பு கொண்டிருந்தால், உங்களைத் தனிப்பட்ட முறையில் அடையாளம் காணக்கூடிய எந்த த் தகவலும் இல்லாமல் நீங்கள் தொடர்பு கொள்ளப்படலாம் என்பதை நீங்கள் அறிவீர்கள்.</value>
-    <comment>14日以内にあなたと接触の状態となったことのある方は、あなた個人を識別可能な情報がない状態で、接触した可能性がある旨を知ることができます。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription6" xml:space="preserve">
-    <value>ஒப்புக்கொண்டு பதிவு செய்யுங்கள்</value>
-    <comment>同意して陽性登録する</comment>
-  </data>
   <data name="SubmitConsentPageTitle1" xml:space="preserve">
     <value>நேர்மறை பதிவு ஒப்புதல்</value>
     <comment>陽性登録への同意</comment>
@@ -569,13 +497,6 @@
     <value>COVID-19 நேர்மறை பயனர்களுடன் நீங்கள் நெருங்கிய தொடர்பில் இருந்த தேதிகள்.</value>
     <comment>以下の日に陽性者との接触が確認されました。</comment>
   </data>
-  <data name="UrlTermOfUse" xml:space="preserve">
-    <value>https://www.mhlw.go.jp/stf/seisakunitsuite/english_rk_00031.html</value>
-    <comment>Term of Use</comment>
-  </data>
-  <data name="UrlContactedForm" xml:space="preserve">
-    <value>https://covid19radarjpnprod.z11.web.core.windows.net/en/index.html</value>
-  </data>
   <data name="UrlContactedPhone" xml:space="preserve">
     <value>https://covid19radarjpnprod.z11.web.core.windows.net/phone.json</value>
   </data>
@@ -595,17 +516,7 @@
   </data>
   <data name="InqueryPageDescription3" xml:space="preserve">
     <value>இந்த பயன்பாட்டை பற்றிய தகவல்</value>
-  </data>
-  <data name="InqueryPageDescription4" xml:space="preserve">
-    <value>பயனருக்கு Q மற்றும் A</value>
-  </data>
-  <data name="InqueryMailBody" xml:space="preserve">
-    <value>பெயர்: \r\n தொடர்பு: \r\n விசாரணையின் உள்ளடக்கம் (பின்வருவனவற்றில் இருந்து ஒரு வகையைத் தேர்ந்தெடுக்கவும்): 1. பயன்பாடு எவ்வாறு செயல்படுகிறது, 2. பயன்பாடு அமைப்புகள், 3. பயன்பாட்டைப் பயன்படுத்துதல் (அறிவிப்பு போன்றவை) ), 4. மற்றவர்கள் \r\n விசாரணை உரை: \r\n</value>
-    <comment>お名前：\r\nご連絡先：\r\nお問い合わせ内容(カテゴリを次の中からお選びください)：1.アプリの仕組み、2.アプリの設定、 3.アプリの利用(通知など)、 4.その他\r\nお問い合わせ本文：\r\n</comment>
-  </data>
-  <data name="InqueryMailSubject" xml:space="preserve">
-    <value>தொடர்பு உறுதிப்படுத்தல் பயன்பாட்டை ப்பற்றிய விசாரணைகள்</value>
-    <comment>接触確認アプリに関するお問い合わせ</comment>
+    <comment>接触確認アプリに関する情報</comment>
   </data>
   <data name="HomePagePastDays" xml:space="preserve">
     <value>நாட்கள்</value>

@@ -21,7 +21,7 @@ namespace Covid19Radar.Api
         private readonly IDiagnosisRepository DiagnosisRepository;
         private readonly ITemporaryExposureKeyRepository TekRepository;
         private readonly IValidationUserService Validation;
-        private readonly IDeviceValidationService DeviceCheck;
+        private readonly IV1DeviceValidationService DeviceCheck;
         private readonly IVerificationService VerificationService;
         private readonly ILogger<DiagnosisApi> Logger;
         private readonly string[] SupportRegions;
@@ -32,7 +32,7 @@ namespace Covid19Radar.Api
             IDiagnosisRepository diagnosisRepository,
             ITemporaryExposureKeyRepository tekRepository,
             IValidationUserService validation,
-            IDeviceValidationService deviceCheck,
+            IV1DeviceValidationService deviceCheck,
             IVerificationService verificationService,
             IValidationServerService validationServerService,
             ILogger<DiagnosisApi> logger)
@@ -52,7 +52,7 @@ namespace Covid19Radar.Api
             [HttpTrigger(AuthorizationLevel.Function, "put", Route = "diagnosis")] HttpRequest req)
         {
             var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            Logger.LogInformation($"{nameof(RunAsync)} request body {requestBody}");
+            Logger.LogInformation($"{nameof(RunAsync)}");
 
             // Check Valid Route
             IValidationServerService.ValidateResult validateResult = ValidationServerService.Validate(req);
@@ -61,7 +61,7 @@ namespace Covid19Radar.Api
                 return validateResult.ErrorActionResult;
             }
 
-            var diagnosis = JsonConvert.DeserializeObject<DiagnosisSubmissionParameter>(requestBody);
+            var diagnosis = JsonConvert.DeserializeObject<V1DiagnosisSubmissionParameter>(requestBody);
             var reqTime = DateTimeOffset.UtcNow;
 
             // payload valid
@@ -89,7 +89,7 @@ namespace Covid19Radar.Api
             // TODO: Security Consider, additional validation for user uuid.
 
             // validation device 
-            if (false == await DeviceCheck.Validation(diagnosis, reqTime))
+            if (false == await DeviceCheck.Validation(diagnosis, reqTime)) 
             {
                 Logger.LogInformation($"Invalid Device");
                 return new BadRequestErrorMessageResult("Invalid Device");
@@ -105,11 +105,6 @@ namespace Covid19Radar.Api
             var timestamp = DateTimeOffset.UtcNow;
             var keys = diagnosis.Keys.Select(_ => _.ToModel(diagnosis, (ulong)timestamp.ToUnixTimeSeconds())).ToArray();
 
-            await DiagnosisRepository.SubmitDiagnosisAsync(
-                diagnosis.VerificationPayload,
-                timestamp,
-                diagnosis.UserUuid,
-                keys);
 
             foreach (var k in keys)
             {

@@ -27,10 +27,6 @@
     <value>授权</value>
     <comment>ライセンス</comment>
   </data>
-  <data name="UrlPrivacyPolicy" xml:space="preserve">
-    <value>https://www.mhlw.go.jp/stf/seisakunitsuite/chinese_pp_00030.html</value>
-    <comment>Policy</comment>
-  </data>
   <data name="TitileUserStatusSettings" xml:space="preserve">
     <value>状态设置</value>
     <comment>User Status Page Title</comment>
@@ -221,18 +217,6 @@
     <value>使用该应用登记您的数字码。</value>
     <comment>本アプリを用いて処理番号の登録を行います。</comment>
   </data>
-  <data name="HelpPage3Description4" xml:space="preserve">
-    <value>14天以内与您有过接触的人的手机会收到通知（在1米范围内持续15分钟以上的接触）。</value>
-    <comment>あなたと14日以内に接触した人のスマホアプリに通知が届きます。（1m以内、15分以上）</comment>
-  </data>
-  <data name="HelpPage3Description5" xml:space="preserve">
-    <value>通知只提供接触对方的随机接触代码，不会显示姓名等的个人信息和地点信息。</value>
-    <comment>通知される情報は端末の接触符号のみです。それ以外の、氏名など個人情報や位置情報が送られることはありません。</comment>
-  </data>
-  <data name="HelpPage3Description6" xml:space="preserve">
-    <value>如果确诊为阳性，请登记您的阳性信息并进行通知</value>
-    <comment>陽性情報の登録と他者への匿名通知へ</comment>
-  </data>
   <data name="SettingsPageButton1" xml:space="preserve">
     <value>授权</value>
     <comment>ライセンス…</comment>
@@ -329,25 +313,9 @@
     <value>和阳性患者的密切接触一览</value>
     <comment>陽性者との接触一覧</comment>
   </data>
-  <data name="ContactedNotifyPageButton2" xml:space="preserve">
-    <value>填写症状</value>
-    <comment>症状を入力</comment>
-  </data>
-  <data name="ContactedNotifyPageButton3" xml:space="preserve">
-    <value>致电咨询中心</value>
-    <comment>帰国者・接触者外来に電話</comment>
-  </data>
   <data name="ContactedNotifyPageCountText" xml:space="preserve">
     <value>times</value>
     <comment>件</comment>
-  </data>
-  <data name="ContactedNotifyPageDescription1" xml:space="preserve">
-    <value>如果您有新冠病毒的一些症状，请填写表单或者向回国者、接触者咨询中心构电话咨询，我们会根据你提供的信息判断是否进行检查。</value>
-    <comment>現在の症状などを、入力フォームまたはお電話にて、ご連絡ください。内容に応じて、帰国者・接触者外来等への受診を案内します。</comment>
-  </data>
-  <data name="ContactedNotifyPageDescription2" xml:space="preserve">
-    <value>请截图保存本页面，并在受诊时提供给医院</value>
-    <comment>受診の際などに必要となる場合があるため、本画面のスクリーンショットの保存をお願いいたします。</comment>
   </data>
   <data name="ContactedNotifyPageMainText" xml:space="preserve">
     <value>查询跟阳性患者的密切接触情况</value>
@@ -356,14 +324,6 @@
   <data name="ContactedNotifyPageTitle" xml:space="preserve">
     <value>查询过去14天内里的接触情况</value>
     <comment>過去14日間の接触</comment>
-  </data>
-  <data name="InqueryPageDescription1" xml:space="preserve">
-    <value>9:00～17:30（节假日除外）</value>
-    <comment>9:00～17:30（土・日・祝日・年末年始を除く）</comment>
-  </data>
-  <data name="InqueryPageDescription2" xml:space="preserve">
-    <value>新型冠状病毒肺炎对策网站</value>
-    <comment>新型コロナウイルス感染症対策サイト</comment>
   </data>
   <data name="InqueryPageTitle" xml:space="preserve">
     <value>帮助与反馈</value>
@@ -449,14 +409,6 @@
     <value>登记</value>
     <comment>登録する</comment>
   </data>
-  <data name="NotifyOtherPageDescription1" xml:space="preserve">
-    <value>请输入新型冠状病毒感染肺炎防疫专利信息共享平台（HER-SYS）开具的数字码</value>
-    <comment>新型コロナウイルス感染症者等情報把握・管理支援システム（HER-SYS）から発行された処理番号を入力してください。</comment>
-  </data>
-  <data name="NotifyOtherPageDescription2" xml:space="preserve">
-    <value>给14天以内与您有密切接触的用户通知。您登记的时候不需要公开您的个人信息，不必输入您的姓名或任何其他个人信息。另外，不会记录并通知密切接触的地点信息。</value>
-    <comment>過去14日間に本アプリであなたと接触した履歴のある人に通知が行きます。登録は匿名で行われ、氏名や連絡先など個人が特定される情報を登録する必要はありません。また、接触した場所の位置情報が記録や通知されることもありません。</comment>
-  </data>
   <data name="NotifyOtherPageLabel" xml:space="preserve">
     <value>如何获得数字码</value>
     <comment>処理番号の取得方法</comment>
@@ -521,30 +473,6 @@
     <value>请输入八位数字码</value>
     <comment>8桁の処理番号を入力してください</comment>
   </data>
-  <data name="SubmitConsentPageDescription1" xml:space="preserve">
-    <value>数字码将会发送到您在新型冠状病毒肺炎信息管理系统（以下简称“管理系统”）中登记的手机号码或电子邮箱中。</value>
-    <comment>新型コロナウイルス感染症等情報把握・管理システム（以下「管理システム」）に登録されたあなたの携帯電話番号又はメールアドレスに、処理番号が通知されます。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription2" xml:space="preserve">
-    <value>当您在设备中输入该数字码时，设备将通过通知服务器向管理系统核对该号码是否为向您发送的数字码。</value>
-    <comment>あなたがこの処理番号を端末に入力することにより、端末から通知サーバーを経由して管理システムに対し、処理番号があなたに対して発行されたものか否かの照会が行われます。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription3" xml:space="preserve">
-    <value>管理系统将会答复通知服务器所核对的数字码是否为向您发出的号码。</value>
-    <comment>管理システムは、通知サーバーに対し、照会された処理番号があなたに対して発行されたものか否かについて回答します。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription4" xml:space="preserve">
-    <value>如能确认号码为向您发送的号码，则会向其他用户的设备上提供记录在您设备上的单日密钥。</value>
-    <comment>処理番号があなたに対して発行されたものである旨の回答が行われた場合は、他の利用者の端末に、あなたの端末に記録された日次鍵が提供されます。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription5" xml:space="preserve">
-    <value>在14天内与您有过接触的用户能够在无法确认您的个人信息的情况下获知与您可能有过接触。</value>
-    <comment>14日以内にあなたと接触の状態となったことのある方は、あなた個人を識別可能な情報がない状態で、接触した可能性がある旨を知ることができます。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription6" xml:space="preserve">
-    <value>同意并进行阳性登记</value>
-    <comment>同意して陽性登録する</comment>
-  </data>
   <data name="SubmitConsentPageTitle1" xml:space="preserve">
     <value>同意进行阳性登记</value>
     <comment>陽性登録への同意</comment>
@@ -569,13 +497,6 @@
     <value>以下日期确认到您与阳性患者存在密切接触。</value>
     <comment>以下の日に陽性者との接触が確認されました。</comment>
   </data>
-  <data name="UrlTermOfUse" xml:space="preserve">
-    <value>https://www.mhlw.go.jp/stf/seisakunitsuite/chinese_rk_00029.html</value>
-    <comment>Term of Use</comment>
-  </data>
-  <data name="UrlContactedForm" xml:space="preserve">
-    <value>https://covid19radarjpnprod.z11.web.core.windows.net/zh-hans/index.html</value>
-  </data>
   <data name="UrlContactedPhone" xml:space="preserve">
     <value>https://covid19radarjpnprod.z11.web.core.windows.net/phone.json</value>
   </data>
@@ -595,17 +516,7 @@
   </data>
   <data name="InqueryPageDescription3" xml:space="preserve">
     <value>有关该应用的信息</value>
-  </data>
-  <data name="InqueryPageDescription4" xml:space="preserve">
-    <value>用户常见问题</value>
-  </data>
-  <data name="InqueryMailBody" xml:space="preserve">
-    <value>姓名: \r\n 联系方式: \r\n 咨询内容（请在下列选项中选择）: 1. 应用的工作原理； 2. 应用的设定； 3. 应用的使用方法 （通知等）； 4. 其他 \r\n 咨询内容文本： \r\n</value>
-    <comment>お名前：\r\nご連絡先：\r\nお問い合わせ内容(カテゴリを次の中からお選びください)：1.アプリの仕組み、2.アプリの設定、 3.アプリの利用(通知など)、 4.その他\r\nお問い合わせ本文：\r\n</comment>
-  </data>
-  <data name="InqueryMailSubject" xml:space="preserve">
-    <value>对该接触情况应用进行咨询</value>
-    <comment>接触確認アプリに関するお問い合わせ</comment>
+    <comment>接触確認アプリに関する情報</comment>
   </data>
   <data name="HomePagePastDays" xml:space="preserve">
     <value>天</value>
@@ -721,5 +632,302 @@
   <data name="ExposureNotificationHandler3ErrorMessage" xml:space="preserve">
     <value>联系人记录数据有问题</value>
     <comment>接触記録データに問題があります</comment>
+  </data>
+  <data name="ContactedNotifyPageButton2" xml:space="preserve">
+    <value>寻找咨询中心</value>
+    <comment>検査等の相談先を探す</comment>
+  </data>
+  <data name="ContactedNotifyPageDescription1" xml:space="preserve">
+    <value>・如果您有发烧，既往病状等症状，或者与经检测COVID-19呈阳性的人接触过，如果你想进行检查方面咨询，请按照本应用的指导，查看咨询中心列表以进行咨询。
+・请保存以下“感染者的接触一览”的屏幕截图，身体检查时可能需要</value>
+    <comment>・発熱等の症状や基礎疾患がある、新型コロナウイルス感染症の陽性者と接触した心当たりがあるなど、検査等の相談を希望される場合は、アプリの案内に従って相談先をご確認ください。
+・受診の際に必要となる場合があるため、以下より陽性者との接触一覧のスクリーンショットを保存してください。</comment>
+  </data>
+  <data name="ReAgreeCheckButton" xml:space="preserve">
+    <value>同意</value>
+    <comment>確認しました</comment>
+  </data>
+  <data name="ReAgreePrivacyPolicyPageTitle" xml:space="preserve">
+    <value>隐私政策的修订</value>
+    <comment>プライバシーポリシーの改定</comment>
+  </data>
+  <data name="ReAgreePrivacyPolicyTextLink" xml:space="preserve">
+    <value>阅读隐私政策</value>
+    <comment>プライバシーポリシーを確認する</comment>
+  </data>
+  <data name="ReAgreeTermsOfServiceTextLink" xml:space="preserve">
+    <value>查看利用规约</value>
+    <comment>利用規約を確認する</comment>
+  </data>
+  <data name="ReAgreeTermsOfServiceTitle" xml:space="preserve">
+    <value>利用规约修订</value>
+    <comment>利用規約の改定</comment>
+  </data>
+  <data name="UrlTermsUpdate" xml:space="preserve">
+    <value>https://covid19radarjpnprod.z11.web.core.windows.net/zh-hans/terms_update.json</value>
+  </data>
+  <data name="InqueryPageDescription2" xml:space="preserve">
+    <value>提交反馈后，请与我们分享运行信息，以帮助我们改进COCOA</value>
+    <comment>お問い合わせ後、動作情報を送信していただくことにより、COCOAの改善に役立ちます。</comment>
+  </data>
+  <data name="InqueryPageButton1" xml:space="preserve">
+    <value>帮助</value>
+    <comment>よくある質問</comment>
+  </data>
+  <data name="InqueryPageButton2" xml:space="preserve">
+    <value>反馈</value>
+    <comment>メールでお問い合わせ</comment>
+  </data>
+  <data name="InqueryPageButton3" xml:space="preserve">
+    <value>上传运行信息</value>
+    <comment>動作情報を送信</comment>
+  </data>
+  <data name="InqueryPageDescription1" xml:space="preserve">
+    <value>请帮助我们改进应用。</value>
+    <comment>アプリの改善にご協力ください</comment>
+  </data>
+  <data name="SendLogConfirmationPageButton1" xml:space="preserve">
+    <value>同意并提交运行信息</value>
+    <comment>同意して送信する</comment>
+  </data>
+  <data name="SendLogConfirmationPageDescription1" xml:space="preserve">
+    <value>关于传送APP运行信息
+向COCOA的运营方传送APP运行信息，从而协助COCOA进行改善。</value>
+    <comment>動作情報の送信により、COCOAの改善にご協力をお願いします。</comment>
+  </data>
+  <data name="SendLogConfirmationPageDescription2" xml:space="preserve">
+    <value>被传送的信息：</value>
+    <comment>送信される情報</comment>
+  </data>
+  <data name="SendLogConfirmationPageDescription3" xml:space="preserve">
+    <value>用于协助调查故障原因的COCOA APP运行信息以及系统运行环境信息（包括COCOA APP的版本、何种OS、OS的版本、设备机种）</value>
+    <comment>不具合の原因調査に役立つCOCOAの動作情報と利用環境情報（COCOAのバージョン、OS、OSバージョン、端末機種）</comment>
+  </data>
+  <data name="SendLogConfirmationPageDescription4" xml:space="preserve">
+    <value>不会被传送的信息：</value>
+    <comment>送信されない情報</comment>
+  </data>
+  <data name="SendLogConfirmationPageDescription5" xml:space="preserve">
+    <value>电话号码、电子邮件等可识别个人身份的信息以及定位信息</value>
+    <comment>電話番号やメールアドレスなどの個人識別可能な情報や位置情報</comment>
+  </data>
+  <data name="SendLogConfirmationPageDescription6" xml:space="preserve">
+    <value>・完成信息传送之后，将前往[通过电子邮件发送APP运行信息ID]界面，可通过APP运行信息ID（为刚刚传送的信息所设置的ID），向运营方发送邮件，咨询您的故障内容。此种情况下，所传送的信息将与所咨询的内容产生关联，用于改善COCOA APP。</value>
+    <comment>・送信が完了した後に、[メールで動作情報IDを送信する]に進んでいただくことにより、動作情報ID（直前に送信された情報に対して振り出されたIDです）とともに、あなたが感じた不具合の内容をメールでお問い合わせいただくことができます。この場合には、送信された情報をお問い合わせ内容と紐付けてCOCOAの改善に活かします。</comment>
+  </data>
+  <data name="SendLogConfirmationPageDescription7" xml:space="preserve">
+    <value>・关于所传送的信息，仅限厚生劳动省以及受厚生劳动省委托维护运营COCOA APP的业务员办，仅用于改善COCOA APP的目的，完成对故障情况的调查之后，运营方将立即删除该信息。未经使用者同意，绝不会将该信息提供给第三方。</value>
+    <comment>・送信された情報は、厚生労働省と、厚生労働省からCOCOAの保守運用の委託を受けた事業者のみが取扱い、COCOAの改善のためだけに使用し、不具合情報の調査終了後、速やかに削除します。利用者の同意なしに第三者に提供することはありません。</comment>
+  </data>
+  <data name="SendLogConfirmationPageDescription8" xml:space="preserve">
+    <value>・点击[确认即将发送的APP运行信息]，即可确认信息的具体内容。</value>
+    <comment>・[動作情報を確認する]をタップいただくことにより、含まれる情報をご確認いただくことができます。</comment>
+  </data>
+  <data name="SendLogConfirmationPageTextLink1" xml:space="preserve">
+    <value>查看用户日志</value>
+    <comment>動作情報を確認する</comment>
+  </data>
+  <data name="SendLogConfirmationPageTitle" xml:space="preserve">
+    <value>关于运行信息</value>
+    <comment>動作情報の送信について</comment>
+  </data>
+  <data name="SendLogCompletePageButton1" xml:space="preserve">
+    <value>提交运行信息ID</value>
+    <comment>メールで動作情報IDを送信する</comment>
+  </data>
+  <data name="SendLogCompletePageButton2" xml:space="preserve">
+    <value>返回主页</value>
+    <comment>終了してホームに戻る</comment>
+  </data>
+  <data name="SendLogCompletePageDescription1" xml:space="preserve">
+    <value>APP运行信息已经成功发送，
+接下来请您通过电子邮件发送您的APP运行信息ID</value>
+    <comment>動作情報を送信しました
+続いてメールで動作情報IDを送信してください</comment>
+  </data>
+  <data name="SendLogCompletePageDescription2" xml:space="preserve">
+    <value>您所传送的信息将与邮件咨询的内容相关联，活用于今后的解决方案或者改善COCOA APP。
+</value>
+    <comment>あらかじめメールでお問い合わせいただいた内容と、お送りいただいた動作情報とを紐付けることで、解決策のご案内やCOCOAの改善に活かすことができます。</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>失败</value>
+    <comment>エラー</comment>
+  </data>
+  <data name="FailedMessageToGetOperatingInformation" xml:space="preserve">
+    <value>无法获取操作信息。 请再试一次。</value>
+    <comment>動作情報の取得に失敗しました。もう一度やり直してください。</comment>
+  </data>
+  <data name="FailedMessageToSaveOperatingInformation" xml:space="preserve">
+    <value>保存操作信息确认文件失败。</value>
+    <comment>動作情報の確認用ファイルの保存に失敗しました。</comment>
+  </data>
+  <data name="FailedMessageToSendOperatingInformation" xml:space="preserve">
+    <value>无法发送操作信息。</value>
+    <comment>動作情報の送信に失敗しました</comment>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>处理中</value>
+    <comment>処理中</comment>
+  </data>
+  <data name="SaveCompleted" xml:space="preserve">
+    <value>已保存</value>
+    <comment>保存完了</comment>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>保存中</value>
+    <comment>保存中</comment>
+  </data>
+  <data name="Sending" xml:space="preserve">
+    <value>发送中</value>
+    <comment>送信中</comment>
+  </data>
+  <data name="SendingError" xml:space="preserve">
+    <value>发送失败</value>
+    <comment>送信エラー</comment>
+  </data>
+  <data name="SuccessMessageToSaveOperatingInformationForAndroid" xml:space="preserve">
+    <value>请使用操作系统的“设置”→“存储”→“文件”或文件管理应用程序查看以下文件夹。
+保存位置：</value>
+    <comment>OSの「設定」→「ストレージ」→「ファイル」、またはファイル管理アプリを利用して以下フォルダをご確認ください。
+保存場所：</comment>
+  </data>
+  <data name="SuccessMessageToSaveOperatingInformationForIOS" xml:space="preserve">
+    <value>操作信息确认文件已保存。 您可以从文件应用的「我的iPhone」中查看它。</value>
+    <comment>動作情報の確認用ファイルを保存しました。ファイルアプリの「このiPhone内」から確認できます。</comment>
+  </data>
+  <data name="InquiryMailBody" xml:space="preserve">
+    <value>意见反馈正文：\r\n\r\n\r\n\r\n※您无需输入个人信息，例如姓名和电话号码。\r\n</value>
+    <comment>お問い合わせ本文：​\r\n\r\n\r\n\r\n※氏名、電話番号などの個人情報を記入する必要はありません。\r\n</comment>
+  </data>
+  <data name="InquiryMailSubject" xml:space="preserve">
+    <value>Cocoa的意见反馈​</value>
+    <comment>接触確認アプリに関するお問い合わせ</comment>
+  </data>
+  <data name="SendIdMailBody1" xml:space="preserve">
+    <value>操作信息ID：</value>
+    <comment>動作情報ID：</comment>
+  </data>
+  <data name="SendIdMailBody2" xml:space="preserve">
+    <value>\r\n\r\n\r\n※您无需输入个人信息，例如姓名和电话号码。\r\n\r\n※请不要删除或修改操作信息ID，直接发送此电子邮件。\r\n</value>
+    <comment>\r\n\r\n\r\n※氏名、電話番号など個人情報を記入する必要はありません。\r\n\r\n※動作情報IDは消さずにこのまま送信してください。\r\n</comment>
+  </data>
+  <data name="SendIdMailSubject" xml:space="preserve">
+    <value>COCOA:操作信息ID</value>
+    <comment>COCOA 動作情報IDの送信</comment>
+  </data>
+  <data name="UrlContactedForm" xml:space="preserve">
+    <value>https://covid19radarjpnprod.z11.web.core.windows.net/zh-hans/chatbot2.html</value>
+  </data>
+  <data name="SuccessMessageToSaveOperatingInformationForAndroid2" xml:space="preserve">
+    <value>
+*对于“ / Android”之前的部分，根据您的环境而异，例如“内部存储”等不同表示。</value>
+    <comment>※「/Android」より前の部分は、お使いの環境によって「内部ストレージ」など表記が異なります</comment>
+  </data>
+  <data name="NotifyOtherPageDescription3" xml:space="preserve">
+    <value>请输入通过短信或电子邮件收到的处理号码</value>
+    <comment>SMSまたはメールで届いた処理番号を入力してください。</comment>
+  </data>
+  <data name="NotifyOtherPageDescription5" xml:space="preserve">
+    <value>在您症状开始或接受检查后的两天以内与您接触过的人将得到通知</value>
+    <comment>症状が始まった日または検査を受けた日の2日前以降にあなたと接触した人に通知が行きます</comment>
+  </data>
+  <data name="NotifyOtherPageDescription1" xml:space="preserve">
+    <value>您有下面的症状吗？</value>
+    <comment>次のような症状がありますか？</comment>
+  </data>
+  <data name="NotifyOtherPageDescription2" xml:space="preserve">
+    <value>发烧，咳嗽，呼吸困难，全身无力，喉咙痛，流鼻水，鼻子堵塞，头疼，关节痛，肌肉疼，腹泻，恶心，呕吐等</value>
+    <comment>発熱、咳、呼吸困難、全身倦怠感、咽頭痛、鼻汁・鼻閉、頭痛、関節・筋肉痛、下痢、嘔気・嘔吐など</comment>
+  </data>
+  <data name="NotifyOtherPageDescription4" xml:space="preserve">
+    <value>登录后</value>
+    <comment>登録すると</comment>
+  </data>
+  <data name="NotifyOtherPageDescription6" xml:space="preserve">
+    <value>＊注册完全是匿名的，不会透露姓名或联系方法等个人信息
+＊不会记录接触发生地的信息，也不会透露给他人</value>
+    <comment>※登録は匿名で行われ、氏名や連絡先など個人が特定される情報が他の人に知られることはありません
+※接触した場所がどこなのか記録されたり、他の人に知られることもありません</comment>
+  </data>
+  <data name="NotifyOtherPageNoSymptomsDescription1" xml:space="preserve">
+    <value>请输入最近接受新冠病毒检查的日期。</value>
+    <comment>直近の新型コロナウイルス感染症の検査を受けた日を入力してください。</comment>
+  </data>
+  <data name="NotifyOtherPageRadioButtonNo" xml:space="preserve">
+    <value>没有</value>
+    <comment>ない</comment>
+  </data>
+  <data name="NotifyOtherPageRadioButtonYes" xml:space="preserve">
+    <value>有</value>
+    <comment>ある</comment>
+  </data>
+  <data name="NotifyOtherPageWithSymptomsDescription1" xml:space="preserve">
+    <value>请输入症状开始的日期。（请输入您记得的最早的日期。输入的日期谁都无法看到）</value>
+    <comment>症状が始まった最初の日を入力してください。（覚えている範囲で一番古い日付を入力してください。入力した日付が誰かに知られることはありません。）</comment>
+  </data>
+  <data name="HelpPage3Description4" xml:space="preserve">
+    <value>在您症状开始或接受检查后的两天以内与您接触过的人将得到通知</value>
+    <comment>発症日または検査日の２日前以降にあなたと接触した人に通知が届きます。</comment>
+  </data>
+  <data name="HelpPage3Description5" xml:space="preserve">
+    <value>通知中只包含随机符号。 不会发送姓名，位置信息等任何个人信息。</value>
+    <comment>通知される情報はランダムな符号のみです。それ以外の、氏名など個人情報や位置情報が送られることはありません。</comment>
+  </data>
+  <data name="SubmitConsentPageButton" xml:space="preserve">
+    <value>同意并进行阳性登记</value>
+    <comment>同意して陽性登録する</comment>
+  </data>
+  <data name="SubmitConsentPageDescription1" xml:space="preserve">
+    <value>请在注册阳性之前阅览</value>
+    <comment>陽性登録の前にお読みください</comment>
+  </data>
+  <data name="SubmitConsentPageDescription10" xml:space="preserve">
+    <value>如果处理号码是正确的，在您症状开始或接受检查后的两天以内与您接触过的人（ 通常指1米以内彼此靠近15分钟以上的COCOA使用者 ）将得到通知。接受通知者不会知道可以识别您的信息。</value>
+    <comment>処理番号が正しい場合には、症状が始まった日または検査を受けた日の2日前以降にあなたと接触した人（概ね1メートル以内で15分以上近接した可能性のあるアプリ使用者）に、通知が届きます。その通知が届いた人に、あなた個人が特定される情報が知られることはありません</comment>
+  </data>
+  <data name="SubmitConsentPageDescription2" xml:space="preserve">
+    <value>・注册阳性后，与您接触过的人将得到通知</value>
+    <comment>・陽性登録すると、あなたと接触した人に通知が届きます</comment>
+  </data>
+  <data name="SubmitConsentPageDescription3" xml:space="preserve">
+    <value>・接受通知者不会知道可以识别您的信息</value>
+    <comment>・その通知が届いた人に、あなた個人が特定される情報が知られることはありません</comment>
+  </data>
+  <data name="SubmitConsentPageDescription4" xml:space="preserve">
+    <value>・为了预防感染扩大，请协助我们注册</value>
+    <comment>・感染拡大防止のため、登録にご協力をお願いします</comment>
+  </data>
+  <data name="SubmitConsentPageDescription5" xml:space="preserve">
+    <value>详细请阅读以下</value>
+    <comment>詳しくは以下をお読みください</comment>
+  </data>
+  <data name="SubmitConsentPageDescription6" xml:space="preserve">
+    <value>您分享(※)给保健所或者医疗机构的手机号码和邮箱地址将被注册到「新型冠状病毒感染症等信息掌握・管理支援系统」这个全国性质的系统（下面称呼为「管理系统」）</value>
+    <comment>あなたが保健所や医療機関に伝えた（※）携帯電話番号またはメールアドレスが「新型コロナウイルス感染症等情報把握・管理支援システム」という全国的システム（以下「管理システム」という）に登録されています</comment>
+  </data>
+  <data name="SubmitConsentPageDescription7" xml:space="preserve">
+    <value>(※)作为新冠检测阳性时的联系方法</value>
+    <comment>（※）新型コロナウイルスの検査で陽性となった時などに連絡先として伝えたもの</comment>
+  </data>
+  <data name="SubmitConsentPageDescription8" xml:space="preserve">
+    <value>当您在保健所提出在COCOA上进行阳性注册后，管理系统将会通过手机号码或者邮箱地址通知您「处理号码」</value>
+    <comment>あなたが保健所にCOCOAへの陽性登録を申し出ると、その携帯電話番号またはメールアドレスに、管理システムから「処理番号」が通知されます</comment>
+  </data>
+  <data name="SubmitConsentPageDescription9" xml:space="preserve">
+    <value>当您咋COCOA中输入处理号码后，您的手机将会通过管理系统来验证处理号码是否正确</value>
+    <comment>あなたが処理番号をCOCOAに入力すると、あなたの携帯電話から管理システムに対し、正しい処理番号であるかどうかの照会が行われます</comment>
+  </data>
+  <data name="HelpPage3Description6" xml:space="preserve">
+    <value>注册阳性信息</value>
+    <comment>陽性情報を登録</comment>
+  </data>
+  <data name="UrlPrivacyPolicy" xml:space="preserve">
+    <value>https://www.mhlw.go.jp/cocoa/privacypolicy_chinese.html</value>
+    <comment>プライバシーポリシーURL</comment>
+  </data>
+  <data name="UrlTermOfUse" xml:space="preserve">
+    <value>https://www.mhlw.go.jp/cocoa/kiyaku_chinese.html</value>
+    <comment>利用規約URL</comment>
   </data>
 </root>

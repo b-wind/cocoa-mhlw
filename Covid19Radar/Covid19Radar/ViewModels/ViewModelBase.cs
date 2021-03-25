@@ -9,8 +9,6 @@ namespace Covid19Radar.ViewModels
 
         // Navigation
         protected INavigationService NavigationService { get; private set; }
-        protected UserDataService UserDataService { get; private set; }
-        protected ExposureNotificationService ExposureNotificationService { get; private set; }
 
         // PageTite
         private string _title;
@@ -29,20 +27,6 @@ namespace Covid19Radar.ViewModels
         {
             NavigationService = navigationService;
         }
-
-        public ViewModelBase(INavigationService navigationService, UserDataService userDataService)
-        {
-            NavigationService = navigationService;
-            UserDataService = userDataService;
-        }
-
-        public ViewModelBase(INavigationService navigationService, UserDataService userDataService, ExposureNotificationService exposureNotificationService)
-        {
-            NavigationService = navigationService;
-            UserDataService = userDataService;
-            ExposureNotificationService = exposureNotificationService;
-        }
-
 
         public virtual void Initialize(INavigationParameters parameters)
         {

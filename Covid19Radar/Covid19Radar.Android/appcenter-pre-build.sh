@@ -13,12 +13,22 @@ APP_CONSTANT_FILE=$BUILD_REPOSITORY_LOCALPATH/Covid19Radar/Covid19Radar/settings
 
 sed -i '' "s/APP_VERSION/$APP_VERSION/g" $APP_CONSTANT_FILE
 sed -i '' "s/API_SECRET/$API_SECRET/g" $APP_CONSTANT_FILE
+sed -i '' "s/API_KEY/$API_KEY/g" $APP_CONSTANT_FILE
 sed -i '' "s/API_URL_BASE/$API_URL_BASE/g" $APP_CONSTANT_FILE
 sed -i '' "s/ANDROID_SAFETYNETKEY/$ANDROID_SAFETYNETKEY/g" $APP_CONSTANT_FILE
 sed -i '' "s/CDN_URL_BASE/$CDN_URL_BASE/g" $APP_CONSTANT_FILE
 sed -i '' "s/SUPPORT_EMAIL/$SUPPORT_EMAIL/g" $APP_CONSTANT_FILE
+sed -i '' "s/LOG_STORAGE_URL_BASE/$LOG_STORAGE_URL_BASE/g" $APP_CONSTANT_FILE
+sed -i '' "s/LOG_STORAGE_CONTAINER_NAME/$LOG_STORAGE_CONTAINER_NAME/g" $APP_CONSTANT_FILE
+sed -i '' "s/LOG_STORAGE_ACCOUNT_NAME/$LOG_STORAGE_ACCOUNT_NAME/g" $APP_CONSTANT_FILE
 
 # Print out file for reference
 cat $APP_CONSTANT_FILE
 
 echo "Updated id!"
+
+# To avoid the following
+# https://github.com/xamarin/xamarin-android/issues/5499
+${ANDROID_HOME}/tools/bin/sdkmanager --uninstall "ndk-bundle"
+${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;21.3.6528147"
+ln -s ${ANDROID_HOME}/ndk/21.3.6528147 ${ANDROID_HOME}/ndk-bundle

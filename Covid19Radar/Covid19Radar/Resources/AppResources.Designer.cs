@@ -187,20 +187,11 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   Fill in your symptoms に類似しているローカライズされた文字列を検索します。
+        ///   Find COVID-19 Consultation Centers に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ContactedNotifyPageButton2 {
             get {
                 return ResourceManager.GetString("ContactedNotifyPageButton2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Tell your symptoms by phone Consultation Center に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string ContactedNotifyPageButton3 {
-            get {
-                return ResourceManager.GetString("ContactedNotifyPageButton3", resourceCulture);
             }
         }
         
@@ -214,20 +205,13 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   If you have possible COVID-19 symptoms, contact healthcare organizations using the form below or by phone. Depending on the symptoms, you will be advised to take a COVID-19 test. に類似しているローカライズされた文字列を検索します。
+        ///   ・If you have any symptoms such as fever, pre-existing conditions, or if you have been in contact with a person that has been tested positive for COVID-19, 
+        ///please follow the app. guidance and check the Consultation Centers List to receive a consultation.
+        ///・Please take a screenshot of the Close Contacts List below, as it may be necessary during the medical examination に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ContactedNotifyPageDescription1 {
             get {
                 return ResourceManager.GetString("ContactedNotifyPageDescription1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Please take a screenshot of this screen. You may be asked to provide it during diagnosis. に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string ContactedNotifyPageDescription2 {
-            get {
-                return ResourceManager.GetString("ContactedNotifyPageDescription2", resourceCulture);
             }
         }
         
@@ -282,6 +266,15 @@ namespace Covid19Radar.Resources {
         internal static string DialogNetworkConnectionErrorTitle {
             get {
                 return ResourceManager.GetString("DialogNetworkConnectionErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
@@ -408,6 +401,33 @@ namespace Covid19Radar.Resources {
         internal static string ExposuresPageTitle {
             get {
                 return ResourceManager.GetString("ExposuresPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Failed to get the Operating information. Please try again. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FailedMessageToGetOperatingInformation {
+            get {
+                return ResourceManager.GetString("FailedMessageToGetOperatingInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Failed to save the Operating information file. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FailedMessageToSaveOperatingInformation {
+            get {
+                return ResourceManager.GetString("FailedMessageToSaveOperatingInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Failed to send operationing information に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FailedMessageToSendOperatingInformation {
+            get {
+                return ResourceManager.GetString("FailedMessageToSendOperatingInformation", resourceCulture);
             }
         }
         
@@ -610,7 +630,7 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   Smartphones that were in close contact with your smartphone within the last 14 days will receive notifications. に類似しているローカライズされた文字列を検索します。
+        ///   People who have come in contact with you 2 or more days before the day the symptoms started or the day you were tested, will receive a notification. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string HelpPage3Description4 {
             get {
@@ -619,7 +639,7 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   Only randomly generated codes from device are used when sending notifications. No personal information is used. に類似しているローカライズされた文字列を検索します。
+        ///   The only information included in the notification will be a randomly generated code. No personal information will be disclosed. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string HelpPage3Description5 {
             get {
@@ -628,7 +648,7 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   Register here when tested positive に類似しているローカライズされた文字列を検索します。
+        ///   Register positive result に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string HelpPage3Description6 {
             get {
@@ -781,25 +801,34 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   Name: \r\n Contact: \r\n Content of inquiry (Please select a category from the following): 1. How the app works, 2. App settings, 3. Use of the app (notification etc.) ), 4. Others \r\n Inquiry text: \r\n に類似しているローカライズされた文字列を検索します。
+        ///   FAQ に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string InqueryMailBody {
+        internal static string InqueryPageButton1 {
             get {
-                return ResourceManager.GetString("InqueryMailBody", resourceCulture);
+                return ResourceManager.GetString("InqueryPageButton1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Inquiries about contact confirmation app に類似しているローカライズされた文字列を検索します。
+        ///   Inquiry に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string InqueryMailSubject {
+        internal static string InqueryPageButton2 {
             get {
-                return ResourceManager.GetString("InqueryMailSubject", resourceCulture);
+                return ResourceManager.GetString("InqueryPageButton2", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   9:00-17:30 (except weekends and holidays) に類似しているローカライズされた文字列を検索します。
+        ///   Send Operating information に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string InqueryPageButton3 {
+            get {
+                return ResourceManager.GetString("InqueryPageButton3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Help us improve the app に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string InqueryPageDescription1 {
             get {
@@ -808,7 +837,7 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   COVID-19 Information and Resources に類似しているローカライズされた文字列を検索します。
+        ///   After making an inquiry, please share with us the operating information to help us improve the COCOA app. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string InqueryPageDescription2 {
             get {
@@ -826,20 +855,29 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   Q and A for user に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string InqueryPageDescription4 {
-            get {
-                return ResourceManager.GetString("InqueryPageDescription4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Support に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string InqueryPageTitle {
             get {
                 return ResourceManager.GetString("InqueryPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Content of inquiry：\r\n\r\n\r\n\r\n※You do not need to enter personal information such as your name and phone number.\r\n に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string InquiryMailBody {
+            get {
+                return ResourceManager.GetString("InquiryMailBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Inquiries about contact information app に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string InquiryMailSubject {
+            get {
+                return ResourceManager.GetString("InquiryMailSubject", resourceCulture);
             }
         }
         
@@ -979,7 +1017,7 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   Please enter a process code issued to you by &quot;Health Center Real-time Information-sharing System on COVID-19 (HER-SYS)&quot;. に類似しているローカライズされた文字列を検索します。
+        ///   Do you have any of the following symptoms？ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NotifyOtherPageDescription1 {
             get {
@@ -988,11 +1026,48 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   Users who were in close contact with you within the past 14 days will be notified. Registration is anonymous. You do not have to enter your name or any other personal information. No information regarding location of close contact is recorded. に類似しているローカライズされた文字列を検索します。
+        ///   Fever, cough, difficulty breathing, sense of fatigue, sore throat, runny nose, nasal congestion, headache, joint・muscle pain, diarrhea, nausea・vomiting に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NotifyOtherPageDescription2 {
             get {
                 return ResourceManager.GetString("NotifyOtherPageDescription2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Please enter below the process code that you have received by SMS or email に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NotifyOtherPageDescription3 {
+            get {
+                return ResourceManager.GetString("NotifyOtherPageDescription3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   After you register the process code に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NotifyOtherPageDescription4 {
+            get {
+                return ResourceManager.GetString("NotifyOtherPageDescription4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   People who have come in contact with you 2 or more days before the day the symptoms started or the day you were tested, will be notified. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NotifyOtherPageDescription5 {
+            get {
+                return ResourceManager.GetString("NotifyOtherPageDescription5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ＊Registration is completely anonymous and no personal information such as name or contact information will be disclosed 
+        ///＊No record of where the close contact happened will be disclosed に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NotifyOtherPageDescription6 {
+            get {
+                return ResourceManager.GetString("NotifyOtherPageDescription6", resourceCulture);
             }
         }
         
@@ -1150,11 +1225,47 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
+        ///   Please enter the date you were tested for COVID-19 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NotifyOtherPageNoSymptomsDescription1 {
+            get {
+                return ResourceManager.GetString("NotifyOtherPageNoSymptomsDescription1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   No に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NotifyOtherPageRadioButtonNo {
+            get {
+                return ResourceManager.GetString("NotifyOtherPageRadioButtonNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Yes に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NotifyOtherPageRadioButtonYes {
+            get {
+                return ResourceManager.GetString("NotifyOtherPageRadioButtonYes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Register positive test result に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NotifyOtherPageTitle {
             get {
                 return ResourceManager.GetString("NotifyOtherPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Please enter the first day symptoms started. (Enter the earliest date you can remember. This information will not be disclosed) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NotifyOtherPageWithSymptomsDescription1 {
+            get {
+                return ResourceManager.GetString("NotifyOtherPageWithSymptomsDescription1", resourceCulture);
             }
         }
         
@@ -1191,6 +1302,258 @@ namespace Covid19Radar.Resources {
         internal static string PrivacyPolicyPageTitle {
             get {
                 return ResourceManager.GetString("PrivacyPolicyPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Processing に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Processing {
+            get {
+                return ResourceManager.GetString("Processing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Agree に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ReAgreeCheckButton {
+            get {
+                return ResourceManager.GetString("ReAgreeCheckButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Privacy Policy Revision に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ReAgreePrivacyPolicyPageTitle {
+            get {
+                return ResourceManager.GetString("ReAgreePrivacyPolicyPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Confirm Privacy Policy に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ReAgreePrivacyPolicyTextLink {
+            get {
+                return ResourceManager.GetString("ReAgreePrivacyPolicyTextLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Confirm Terms of Use に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ReAgreeTermsOfServiceTextLink {
+            get {
+                return ResourceManager.GetString("ReAgreeTermsOfServiceTextLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Revision of Terms of Use に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ReAgreeTermsOfServiceTitle {
+            get {
+                return ResourceManager.GetString("ReAgreeTermsOfServiceTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Save completed に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SaveCompleted {
+            get {
+                return ResourceManager.GetString("SaveCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Saving に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Saving {
+            get {
+                return ResourceManager.GetString("Saving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Operating information ID： に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendIdMailBody1 {
+            get {
+                return ResourceManager.GetString("SendIdMailBody1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   \r\n\r\n\r\n※ You do not need to enter personal information such as your name and phone number.\r\n\r\n※ Please send this email as it is without erasing or modifying the operating information ID\r\n に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendIdMailBody2 {
+            get {
+                return ResourceManager.GetString("SendIdMailBody2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   COCOA： Operating information ID に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendIdMailSubject {
+            get {
+                return ResourceManager.GetString("SendIdMailSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sending に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Sending {
+            get {
+                return ResourceManager.GetString("Sending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sending error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendingError {
+            get {
+                return ResourceManager.GetString("SendingError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Send Operating information ID に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogCompletePageButton1 {
+            get {
+                return ResourceManager.GetString("SendLogCompletePageButton1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Exit and Return to Home page に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogCompletePageButton2 {
+            get {
+                return ResourceManager.GetString("SendLogCompletePageButton2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Please send the operating information ID by e-mail following on from sending operating information. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogCompletePageDescription1 {
+            get {
+                return ResourceManager.GetString("SendLogCompletePageDescription1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   We can link the content of the inquiry you made by e-mail in advance and the operating information you send us and then utilize it to improve solution guidance and COCOA. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogCompletePageDescription2 {
+            get {
+                return ResourceManager.GetString("SendLogCompletePageDescription2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Approve and Send information に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogConfirmationPageButton1 {
+            get {
+                return ResourceManager.GetString("SendLogConfirmationPageButton1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Please help us to improve COCOA by sending operating information. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogConfirmationPageDescription1 {
+            get {
+                return ResourceManager.GetString("SendLogConfirmationPageDescription1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Information that will be sent: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogConfirmationPageDescription2 {
+            get {
+                return ResourceManager.GetString("SendLogConfirmationPageDescription2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   COCOA operating information and usage environment information (COCOA version, OS, OS version and device model) useful in investigations into the causes of malfunctions に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogConfirmationPageDescription3 {
+            get {
+                return ResourceManager.GetString("SendLogConfirmationPageDescription3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Information that will not be sent: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogConfirmationPageDescription4 {
+            get {
+                return ResourceManager.GetString("SendLogConfirmationPageDescription4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Information that can identify individuals (e.g., telephone numbers and e-mail addresses) and location information に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogConfirmationPageDescription5 {
+            get {
+                return ResourceManager.GetString("SendLogConfirmationPageDescription5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ・After you have sent us operating information, you can make an inquiry by e-mail about the content of the malfunction together with the operating information ID (the ID assigned to the information sent the most recently) by proceeding to [Send Operating Information ID by E-mail]. In this case, we will link the information you send us with your inquiry to utilize it in improving COCOA. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogConfirmationPageDescription6 {
+            get {
+                return ResourceManager.GetString("SendLogConfirmationPageDescription6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ・ The information you send us will only be handled by the Ministry of Health, Labour and Welfare and parties subcontracted to maintain and operate COCOA by the Ministry of Health, Labour and Welfare. Furthermore, this information will only be used to improve COCOA. We will promptly delete it after completing the investigation into the malfunction information. We will not provide this information to third parties without the consent of the user. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogConfirmationPageDescription7 {
+            get {
+                return ResourceManager.GetString("SendLogConfirmationPageDescription7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ・ You can check the information contained in the operating information by tapping [Check Operating Information]. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogConfirmationPageDescription8 {
+            get {
+                return ResourceManager.GetString("SendLogConfirmationPageDescription8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   View Operating information に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogConfirmationPageTextLink1 {
+            get {
+                return ResourceManager.GetString("SendLogConfirmationPageTextLink1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   About Operating information に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SendLogConfirmationPageTitle {
+            get {
+                return ResourceManager.GetString("SendLogConfirmationPageTitle", resourceCulture);
             }
         }
         
@@ -1294,7 +1657,16 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   The processing number will be notified to your mobile phone number or e-mail address registered in the new coronavirus infectious disease information and management system (hereinafter &quot;management system&quot;). に類似しているローカライズされた文字列を検索します。
+        ///   Agree and register に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SubmitConsentPageButton {
+            get {
+                return ResourceManager.GetString("SubmitConsentPageButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Please read before continue the positive registration に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SubmitConsentPageDescription1 {
             get {
@@ -1303,7 +1675,16 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   When you enter this processing number into the terminal, the terminal will make an inquiry via the notification server to the management system as to whether the processing number has been issued to you. に類似しているローカライズされた文字列を検索します。
+        ///   If the processing number is correct, people who have come in close contact (within 1 meter for 15 minutes or more) with you 2 or more days before the day the symptoms started or the day you were tested, will be notified. None of your personal information will be known to the person who has received the notification に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SubmitConsentPageDescription10 {
+            get {
+                return ResourceManager.GetString("SubmitConsentPageDescription10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ・When you complete the registration, people who have come in close contact with you will receive a notification. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SubmitConsentPageDescription2 {
             get {
@@ -1312,7 +1693,7 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   The management system will respond to the notification server as to whether the transaction number referred to was issued to you. に類似しているローカライズされた文字列を検索します。
+        ///   ・ None of your personal information will be known to the person who has received the notification に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SubmitConsentPageDescription3 {
             get {
@@ -1321,7 +1702,7 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   If you reply that the transaction number was issued to you, other users&apos; terminals will be provided with the daily key recorded on your terminal. に類似しているローカライズされた文字列を検索します。
+        ///   ・ To avoid the spread of the infection, please cooperate with the registration process に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SubmitConsentPageDescription4 {
             get {
@@ -1330,7 +1711,7 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   If you have been in contact with you within 14 days, you will know that you may have been contacted without any information that can identify you personally. に類似しているローカライズされた文字列を検索します。
+        ///   For more details please read below に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SubmitConsentPageDescription5 {
             get {
@@ -1339,11 +1720,38 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   Agree and register に類似しているローカライズされた文字列を検索します。
+        ///   The mobile phone number or email address you gave to health center or medical institution (※) will be registered in the New Coronavirus Infectious Disease Information and Management System (hereinafter “management system”) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SubmitConsentPageDescription6 {
             get {
                 return ResourceManager.GetString("SubmitConsentPageDescription6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   (※)　It is the contact information that you gave during the visit if tested positive to COVID-19 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SubmitConsentPageDescription7 {
+            get {
+                return ResourceManager.GetString("SubmitConsentPageDescription7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   When you apply at the health center for positive registration with COCOA, the management system will notify the mobile phone number or email address with a processing number. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SubmitConsentPageDescription8 {
+            get {
+                return ResourceManager.GetString("SubmitConsentPageDescription8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   After you have entered the processing number into COCOA, your mobile phone will query the management system to confirm the validity of that number に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SubmitConsentPageDescription9 {
+            get {
+                return ResourceManager.GetString("SubmitConsentPageDescription9", resourceCulture);
             }
         }
         
@@ -1362,6 +1770,35 @@ namespace Covid19Radar.Resources {
         internal static string SubmitConsentPageTitle2 {
             get {
                 return ResourceManager.GetString("SubmitConsentPageTitle2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Please check the following folder from the OS &quot;Settings&quot; → &quot;Storage&quot; → &quot;Files&quot; or by using a file management application.
+        ///Storage : に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SuccessMessageToSaveOperatingInformationForAndroid {
+            get {
+                return ResourceManager.GetString("SuccessMessageToSaveOperatingInformationForAndroid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   
+        ///※The part preceding &quot;/Android&quot; , such as &quot;Internal Storage”, may differ depending on your environment. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SuccessMessageToSaveOperatingInformationForAndroid2 {
+            get {
+                return ResourceManager.GetString("SuccessMessageToSaveOperatingInformationForAndroid2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The Operating information file was saved successfully. You can view it「On My iPhone」 from Files app. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SuccessMessageToSaveOperatingInformationForIOS {
+            get {
+                return ResourceManager.GetString("SuccessMessageToSaveOperatingInformationForIOS", resourceCulture);
             }
         }
         
@@ -1663,7 +2100,7 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   https://covid19radarjpnprod.z11.web.core.windows.net/en/index.html に類似しているローカライズされた文字列を検索します。
+        ///   https://covid19radarjpnprod.z11.web.core.windows.net/en/chatbot2.html に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string UrlContactedForm {
             get {
@@ -1681,7 +2118,7 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   https://www.mhlw.go.jp/stf/seisakunitsuite/english_pp_00032.html に類似しているローカライズされた文字列を検索します。
+        ///   https://www.mhlw.go.jp/cocoa/privacypolicy_english.html に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string UrlPrivacyPolicy {
             get {
@@ -1690,11 +2127,20 @@ namespace Covid19Radar.Resources {
         }
         
         /// <summary>
-        ///   https://www.mhlw.go.jp/stf/seisakunitsuite/english_rk_00031.html に類似しているローカライズされた文字列を検索します。
+        ///   https://www.mhlw.go.jp/cocoa/kiyaku_english.html に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string UrlTermOfUse {
             get {
                 return ResourceManager.GetString("UrlTermOfUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   https://covid19radarjpnprod.z11.web.core.windows.net/en/terms_update.json に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string UrlTermsUpdate {
+            get {
+                return ResourceManager.GetString("UrlTermsUpdate", resourceCulture);
             }
         }
         

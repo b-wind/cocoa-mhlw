@@ -27,10 +27,6 @@
     <value>הסכם רישיון</value>
     <comment>ライセンス</comment>
   </data>
-  <data name="UrlPrivacyPolicy" xml:space="preserve">
-    <value>https://www.mhlw.go.jp/stf/seisakunitsuite/english_pp_00032.html</value>
-    <comment>Policy</comment>
-  </data>
   <data name="TitileUserStatusSettings" xml:space="preserve">
     <value>הגדרות סטטוס</value>
     <comment>User Status Page Title</comment>
@@ -221,18 +217,6 @@
     <value>הירשם על ידי הזנת מספר עיבוד שסופקו לתוך יישום זה</value>
     <comment>本アプリを用いて処理番号の登録を行います。</comment>
   </data>
-  <data name="HelpPage3Description4" xml:space="preserve">
-    <value>טלפונים חכמים שהיו במגע קרוב עם הטלפון החכם שלך בתוך 14 הימים האחרונים יקבלו הודעות.</value>
-    <comment>あなたと14日以内に接触した人のスマホアプリに通知が届きます。（1m以内、15分以上）</comment>
-  </data>
-  <data name="HelpPage3Description5" xml:space="preserve">
-    <value>רק קודים שנוצרו באופן אקראי מההתקן משמשים בעת שליחת הודעות. לא נעשה שימוש במידע אישי.</value>
-    <comment>通知される情報は端末の接触符号のみです。それ以外の、氏名など個人情報や位置情報が送られることはありません。</comment>
-  </data>
-  <data name="HelpPage3Description6" xml:space="preserve">
-    <value>הירשם כאן כאשר נבדק חיובי</value>
-    <comment>陽性情報の登録と他者への匿名通知へ</comment>
-  </data>
   <data name="SettingsPageButton1" xml:space="preserve">
     <value>רשיון</value>
     <comment>ライセンス…</comment>
@@ -329,25 +313,9 @@
     <value>רשימה של אנשי קשר קרובים עם משתמשים חיוביים מבית COVID-19</value>
     <comment>陽性者との接触一覧</comment>
   </data>
-  <data name="ContactedNotifyPageButton2" xml:space="preserve">
-    <value>מלא את הסימפטומים שלך</value>
-    <comment>症状を入力</comment>
-  </data>
-  <data name="ContactedNotifyPageButton3" xml:space="preserve">
-    <value>ספר את הסימפטומים שלך לפי מרכז ייעוץ טלפוני</value>
-    <comment>帰国者・接触者外来に電話</comment>
-  </data>
   <data name="ContactedNotifyPageCountText" xml:space="preserve">
     <value>פעמים</value>
     <comment>件</comment>
-  </data>
-  <data name="ContactedNotifyPageDescription1" xml:space="preserve">
-    <value>אם יש לך מאפייני COVID-19 אפשרי, צור קשר עם ארגוני הבריאות באמצעות הטופס שלהלן או באמצעות הטלפון. בהתאם לתסמינים, אתה תהיה מומלץ לקחת מבחן COVID-19.</value>
-    <comment>現在の症状などを、入力フォームまたはお電話にて、ご連絡ください。内容に応じて、帰国者・接触者外来等への受診を案内します。</comment>
-  </data>
-  <data name="ContactedNotifyPageDescription2" xml:space="preserve">
-    <value>נא לקחת צילום מסך של המסך הזה. ייתכן שתתבקש לספק זאת במהלך האבחון.</value>
-    <comment>受診の際などに必要となる場合があるため、本画面のスクリーンショットの保存をお願いいたします。</comment>
   </data>
   <data name="ContactedNotifyPageMainText" xml:space="preserve">
     <value>מספר אנשי הקשר הקרובים המאושר באמצעות COVID-19 משתמשים חיוביים</value>
@@ -356,14 +324,6 @@
   <data name="ContactedNotifyPageTitle" xml:space="preserve">
     <value>סגור קשרים במשך 14 הימים האחרונים</value>
     <comment>過去14日間の接触</comment>
-  </data>
-  <data name="InqueryPageDescription1" xml:space="preserve">
-    <value>9:00-17:30 (למעט סופי שבוע וחגים)</value>
-    <comment>9:00～17:30（土・日・祝日・年末年始を除く）</comment>
-  </data>
-  <data name="InqueryPageDescription2" xml:space="preserve">
-    <value>COVID-19 מידע ומשאבים</value>
-    <comment>新型コロナウイルス感染症対策サイト</comment>
   </data>
   <data name="InqueryPageTitle" xml:space="preserve">
     <value>תמיכה</value>
@@ -449,14 +409,6 @@
     <value>הירשם</value>
     <comment>登録する</comment>
   </data>
-  <data name="NotifyOtherPageDescription1" xml:space="preserve">
-    <value>נא הזן קוד תהליך שהונפק לך על-ידי "מרכז בריאות בזמן אמת מערכת שיתוף מידע ב-COVID-19 (שלה-SYS)".</value>
-    <comment>新型コロナウイルス感染症者等情報把握・管理支援システム（HER-SYS）から発行された処理番号を入力してください。</comment>
-  </data>
-  <data name="NotifyOtherPageDescription2" xml:space="preserve">
-    <value>משתמשים שהיו בקשר קרוב עמך בתוך 14 הימים האחרונים יקבלו הודעה. ההרשמה אנונימית. אינך צריך להזין את שמך או כל מידע אישי אחר. לא נרשם מידע אודות מיקום של איש קשר קרוב.</value>
-    <comment>過去14日間に本アプリであなたと接触した履歴のある人に通知が行きます。登録は匿名で行われ、氏名や連絡先など個人が特定される情報を登録する必要はありません。また、接触した場所の位置情報が記録や通知されることもありません。</comment>
-  </data>
   <data name="NotifyOtherPageLabel" xml:space="preserve">
     <value>כיצד לקבל קוד תהליך</value>
     <comment>処理番号の取得方法</comment>
@@ -521,30 +473,6 @@
     <value>הזן קוד בן 8 ספרות</value>
     <comment>8桁の処理番号を入力してください</comment>
   </data>
-  <data name="SubmitConsentPageDescription1" xml:space="preserve">
-    <value>מספר העיבוד יקבל הודעה למספר הטלפון הנייד או לכתובת הדואר האלקטרוני שלך הרשומה במערכת המידע והניהול החדשה של המחלה הזיהומית (להלן "מערכת הניהול").</value>
-    <comment>新型コロナウイルス感染症等情報把握・管理システム（以下「管理システム」）に登録されたあなたの携帯電話番号又はメールアドレスに、処理番号が通知されます。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription2" xml:space="preserve">
-    <value>בעת הזנת מספר עיבוד זה לתוך המסוף, המסוף יעשה בדיקה באמצעות שרת ההודעות למערכת הניהול באשר לשאלה אם מספר העיבוד הונפק עבורך.</value>
-    <comment>あなたがこの処理番号を端末に入力することにより、端末から通知サーバーを経由して管理システムに対し、処理番号があなたに対して発行されたものか否かの照会が行われます。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription3" xml:space="preserve">
-    <value>מערכת הניהול תגיב לשרת ההודעות על השאלה אם מספר הטרנזקציה שאליו הפנה הונפק עבורך.</value>
-    <comment>管理システムは、通知サーバーに対し、照会された処理番号があなたに対して発行されたものか否かについて回答します。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription4" xml:space="preserve">
-    <value>אם תשיב שמספר הטרנזקציה הונפק לך, מסופי משתמש אחרים יסופקו עם המפתח היומי שנרשם במסוף שלך.</value>
-    <comment>処理番号があなたに対して発行されたものである旨の回答が行われた場合は、他の利用者の端末に、あなたの端末に記録された日次鍵が提供されます。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription5" xml:space="preserve">
-    <value>אם היית בקשר איתך תוך 14 ימים, תדע שייתכן שיצרת קשר ללא כל מידע שיכול לזהות אותך באופן אישי.</value>
-    <comment>14日以内にあなたと接触の状態となったことのある方は、あなた個人を識別可能な情報がない状態で、接触した可能性がある旨を知ることができます。</comment>
-  </data>
-  <data name="SubmitConsentPageDescription6" xml:space="preserve">
-    <value>הסכמה והרשמה</value>
-    <comment>同意して陽性登録する</comment>
-  </data>
   <data name="SubmitConsentPageTitle1" xml:space="preserve">
     <value>הסכמה להרשמה חיובית</value>
     <comment>陽性登録への同意</comment>
@@ -569,13 +497,6 @@
     <value>תאריכים שבהם היית בקשר קרוב עם משתמשים חיוביים מבוססי COVID-19.</value>
     <comment>以下の日に陽性者との接触が確認されました。</comment>
   </data>
-  <data name="UrlTermOfUse" xml:space="preserve">
-    <value>https://www.mhlw.go.jp/stf/seisakunitsuite/english_rk_00031.html</value>
-    <comment>Term of Use</comment>
-  </data>
-  <data name="UrlContactedForm" xml:space="preserve">
-    <value>https://covid19radarjpnprod.z11.web.core.windows.net/en/index.html</value>
-  </data>
   <data name="UrlContactedPhone" xml:space="preserve">
     <value>https://covid19radarjpnprod.z11.web.core.windows.net/phone.json</value>
   </data>
@@ -595,17 +516,7 @@
   </data>
   <data name="InqueryPageDescription3" xml:space="preserve">
     <value>מידע אודות יישום זה</value>
-  </data>
-  <data name="InqueryPageDescription4" xml:space="preserve">
-    <value>Q ו-A עבור המשתמש</value>
-  </data>
-  <data name="InqueryMailBody" xml:space="preserve">
-    <value>שם: \r\n איש קשר: \r\n תוכן חקירה (נא בחר קטגוריה מתוך האפשרויות הבאות): 1. כיצד האפליקציה עובדת, 2. הגדרות App, 3. השימוש באפליקציה (הודעה וכו ')), 4. אחרים \r\n טקסט חקירה: \r\n</value>
-    <comment>お名前：\r\nご連絡先：\r\nお問い合わせ内容(カテゴリを次の中からお選びください)：1.アプリの仕組み、2.アプリの設定、 3.アプリの利用(通知など)、 4.その他\r\nお問い合わせ本文：\r\n</comment>
-  </data>
-  <data name="InqueryMailSubject" xml:space="preserve">
-    <value>שאילתות אודות יישום אישור של איש קשר</value>
-    <comment>接触確認アプリに関するお問い合わせ</comment>
+    <comment>接触確認アプリに関する情報</comment>
   </data>
   <data name="HomePagePastDays" xml:space="preserve">
     <value>ימים</value>

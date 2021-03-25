@@ -1,8 +1,5 @@
-﻿using Covid19Radar.Model;
-using Covid19Radar.Resources;
-using Covid19Radar.Services;
+﻿using Covid19Radar.Services.Logs;
 using Covid19Radar.Views;
-//using Plugin.LocalNotification;
 using Prism.Navigation;
 using Xamarin.Forms;
 
@@ -10,35 +7,26 @@ namespace Covid19Radar.ViewModels
 {
     public class TutorialPage5ViewModel : ViewModelBase
     {
-        private readonly UserDataService userDataService;
-        private UserDataModel userData;
+        private readonly ILoggerService loggerService;
 
-        public TutorialPage5ViewModel(INavigationService navigationService, UserDataService userDataService) : base(navigationService, userDataService)
+        public TutorialPage5ViewModel(INavigationService navigationService, ILoggerService loggerService) : base(navigationService)
         {
-            this.userDataService = userDataService;
-            userData = this.userDataService.Get();
+            this.loggerService = loggerService;
 
         }
 
         public Command OnClickEnable => new Command(async () =>
         {
-            //var notification = new NotificationRequest
-            //{
-            //    NotificationId = 100,
-            //    Title = AppResources.LocalNotificationPermittedTitle,
-            //    Description = AppResources.LocalNotificationPermittedDescription
-            //};
-            //NotificationCenter.Current.Show(notification);
-            userData.IsNotificationEnabled = true;
-            await userDataService.SetAsync(userData);
+            loggerService.StartMethod();
             await NavigationService.NavigateAsync(nameof(TutorialPage6));
-        });
-        public Command OnClickDisable => new Command(async () =>
-        {
-            userData.IsNotificationEnabled = false;
-            await userDataService.SetAsync(userData);
-            await NavigationService.NavigateAsync(nameof(TutorialPage6));
+            loggerService.EndMethod();
         });
 
+        public Command OnClickDisable => new Command(async () =>
+        {
+            loggerService.StartMethod();
+            await NavigationService.NavigateAsync(nameof(TutorialPage6));
+            loggerService.EndMethod();
+        });
     }
 }

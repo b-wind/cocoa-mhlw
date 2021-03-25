@@ -5,11 +5,10 @@ using System.Linq;
 
 namespace Covid19Radar.Api.Models
 {
-    public class DiagnosisSubmissionParameter : IUser, IPayload
-	{
-		[JsonProperty("userUuid")]
-		public string UserUuid { get; set; }
-        [JsonProperty("keys")]
+
+	public class DiagnosisSubmissionParameter : IPayload
+    {
+		[JsonProperty("keys")]
 		public Key[] Keys { get; set; }
 		[JsonProperty("regions")]
 		public string[] Regions { get; set; }
@@ -26,7 +25,7 @@ namespace Covid19Radar.Api.Models
 		[JsonProperty("padding")]
 		public string Padding { get; set; }
 
-		public class Key
+		public  class Key
 		{
 			[JsonProperty("keyData")]
 			public string KeyData { get; set; }
@@ -34,8 +33,6 @@ namespace Covid19Radar.Api.Models
 			public uint RollingStartNumber { get; set; }
 			[JsonProperty("rollingPeriod")]
 			public uint RollingPeriod { get; set; }
-			[JsonProperty("transmissionRisk")]
-			public int TransmissionRisk { get; set; }
 			public TemporaryExposureKeyModel ToModel(DiagnosisSubmissionParameter p, ulong timestamp)
 			{
 				return new TemporaryExposureKeyModel()
@@ -43,7 +40,7 @@ namespace Covid19Radar.Api.Models
 					KeyData = Convert.FromBase64String(this.KeyData),
 					RollingPeriod = ((int)this.RollingPeriod == 0 ? (int)Constants.ActiveRollingPeriod : (int)this.RollingPeriod),
 					RollingStartIntervalNumber = (int)this.RollingStartNumber,
-					TransmissionRiskLevel = TransmissionRisk,
+					TransmissionRiskLevel = 4,
 					Timestamp = timestamp,
 					Exported = false
 				};
@@ -67,11 +64,10 @@ namespace Covid19Radar.Api.Models
 		/// Validation
 		/// </summary>
 		/// <returns>true if valid</returns>
-		public bool IsValid()
+		public virtual bool IsValid()
 		{
 			if (string.IsNullOrWhiteSpace(VerificationPayload)) return false;
-			if (string.IsNullOrWhiteSpace(UserUuid)) return false;
-			if ((Regions?.Length ?? 0)  == 0) return false;
+			if ((Regions?.Length ?? 0) == 0) return false;
 			if (string.IsNullOrWhiteSpace(Platform)) return false;
 			if (string.IsNullOrWhiteSpace(DeviceVerificationPayload)) return false;
 			if (string.IsNullOrWhiteSpace(AppPackageName)) return false;
@@ -79,4 +75,5 @@ namespace Covid19Radar.Api.Models
 			return true;
 		}
 	}
+
 }

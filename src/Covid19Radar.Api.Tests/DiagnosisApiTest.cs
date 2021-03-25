@@ -28,7 +28,7 @@ namespace Covid19Radar.Api.Tests
             var tekRepo = new Mock<ITemporaryExposureKeyRepository>();
             var validation = new Mock<IValidationUserService>();
             var validationServer = new Mock<IValidationServerService>();
-            var deviceCheck = new Mock<IDeviceValidationService>();
+            var deviceCheck = new Mock<IV1DeviceValidationService>();
             var verification = new Mock<IVerificationService>();
             var logger = new Mock.LoggerMock<Covid19Radar.Api.DiagnosisApi>();
             var diagnosisApi = new DiagnosisApi(config.Object,
@@ -73,8 +73,8 @@ namespace Covid19Radar.Api.Tests
                 IsValid = isValid
             };
             validation.Setup(_ => _.ValidateAsync(It.IsAny<HttpRequest>(), It.IsAny<IUser>())).ReturnsAsync(validationResult);
-            var deviceCheck = new Mock<IDeviceValidationService>();
-            deviceCheck.Setup(_ => _.Validation(It.IsAny<DiagnosisSubmissionParameter>(), It.IsAny<DateTimeOffset>())).ReturnsAsync(isValidDevice);
+            var deviceCheck = new Mock<IV1DeviceValidationService>();
+            deviceCheck.Setup(_ => _.Validation(It.IsAny<V1DiagnosisSubmissionParameter>(), It.IsAny<DateTimeOffset>())).ReturnsAsync(isValidDevice);
             var verification = new Mock<IVerificationService>();
             var logger = new Mock.LoggerMock<Covid19Radar.Api.DiagnosisApi>();
             var diagnosisApi = new DiagnosisApi(config.Object,
@@ -90,7 +90,7 @@ namespace Covid19Radar.Api.Tests
             RandomNumberGenerator.Create().GetBytes(keydata);
             var keyDataString = Convert.ToBase64String(keydata);
             var startNumber = (uint)DateTimeOffset.UtcNow.ToUnixTimeSeconds() / 600;
-            var bodyJson = new DiagnosisSubmissionParameter()
+            var bodyJson = new V1DiagnosisSubmissionParameter()
             {
                 VerificationPayload = verificationPayload,
                 Regions = new[] { region },
@@ -98,9 +98,9 @@ namespace Covid19Radar.Api.Tests
                 Platform = platform,
                 DeviceVerificationPayload = "DeviceVerificationPayload",
                 AppPackageName = "Covid19Radar",
-                Keys = new DiagnosisSubmissionParameter.Key[] {
-                    new DiagnosisSubmissionParameter.Key() { KeyData = keyDataString, RollingPeriod = 0, RollingStartNumber = startNumber },
-                    new DiagnosisSubmissionParameter.Key() { KeyData = keyDataString, RollingPeriod = 0, RollingStartNumber = startNumber } }
+                Keys = new V1DiagnosisSubmissionParameter.Key[] {
+                    new V1DiagnosisSubmissionParameter.Key() { KeyData = keyDataString, RollingPeriod = 0, RollingStartNumber = startNumber },
+                    new V1DiagnosisSubmissionParameter.Key() { KeyData = keyDataString, RollingPeriod = 0, RollingStartNumber = startNumber } }
             };
             var bodyString = Newtonsoft.Json.JsonConvert.SerializeObject(bodyJson);
             using var stream = new System.IO.MemoryStream();

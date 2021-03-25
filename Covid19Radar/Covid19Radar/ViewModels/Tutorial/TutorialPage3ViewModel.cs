@@ -1,6 +1,7 @@
-﻿using Acr.UserDialogs;
-using Covid19Radar.Model;
+﻿using System;
+using Acr.UserDialogs;
 using Covid19Radar.Services;
+using Covid19Radar.Services.Logs;
 using Covid19Radar.Views;
 using Prism.Navigation;
 using Xamarin.Forms;
@@ -9,8 +10,9 @@ namespace Covid19Radar.ViewModels
 {
     public class TutorialPage3ViewModel : ViewModelBase
     {
-        private readonly UserDataService userDataService;
-        private UserDataModel userData;
+        private readonly ILoggerService loggerService;
+        private readonly IUserDataService userDataService;
+        private readonly ITermsUpdateService termsUpdateService;
 
         private string _url;
         public string Url
@@ -19,29 +21,32 @@ namespace Covid19Radar.ViewModels
             set { SetProperty(ref _url, value); }
         }
 
-        public TutorialPage3ViewModel(INavigationService navigationService, UserDataService userDataService) : base(navigationService, userDataService)
+        public TutorialPage3ViewModel(INavigationService navigationService, ILoggerService loggerService, IUserDataService userDataService, ITermsUpdateService termsUpdateService) : base(navigationService)
         {
+            this.loggerService = loggerService;
             this.userDataService = userDataService;
-            userData = this.userDataService.Get();
+            this.termsUpdateService = termsUpdateService;
         }
         public Command OnClickAgree => new Command(async () =>
         {
+            loggerService.StartMethod();
 
             UserDialogs.Instance.ShowLoading(Resources.AppResources.LoadingTextRegistering);
-            if (!userDataService.IsExistUserData)
+
+            var registerResult = await userDataService.RegisterUserAsync();
+            if (!registerResult)
             {
-                userData = await userDataService.RegisterUserAsync();
-                if (userData == null)
-                {
-                    UserDialogs.Instance.HideLoading();
-                    await UserDialogs.Instance.AlertAsync(Resources.AppResources.DialogNetworkConnectionError, Resources.AppResources.DialogNetworkConnectionErrorTitle, Resources.AppResources.ButtonOk);
-                    return;
-                }
+                loggerService.Error("Failed register");
+                UserDialogs.Instance.HideLoading();
+                await UserDialogs.Instance.AlertAsync(Resources.AppResources.DialogNetworkConnectionError, Resources.AppResources.DialogNetworkConnectionErrorTitle, Resources.AppResources.ButtonOk);
+                loggerService.EndMethod();
+                return;
             }
-            userData.IsOptined = true;
-            await userDataService.SetAsync(userData);
+
+            termsUpdateService.SaveLastUpdateDate(TermsType.TermsOfService, DateTime.Now);
             UserDialogs.Instance.HideLoading();
             await NavigationService.NavigateAsync(nameof(PrivacyPolicyPage));
+            loggerService.EndMethod();
         });
     }
 }

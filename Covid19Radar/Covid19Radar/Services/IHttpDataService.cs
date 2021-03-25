@@ -11,12 +11,14 @@ namespace Covid19Radar.Services
 {
     public interface IHttpDataService
     {
-        Task<UserDataModel> PostRegisterUserAsync();
+        Task<bool> PostRegisterUserAsync();
 
         Task<HttpStatusCode> PutSelfExposureKeysAsync(DiagnosisSubmissionParameter request);
 
         Task<List<TemporaryExposureKeyExportFileModel>> GetTemporaryExposureKeyList(string region, CancellationToken cancellationToken);
 
         Task<Stream> GetTemporaryExposureKey(string url, CancellationToken cancellationToken);
+
+        Task<ApiResponse<LogStorageSas>> GetLogStorageSas();
     }
 }

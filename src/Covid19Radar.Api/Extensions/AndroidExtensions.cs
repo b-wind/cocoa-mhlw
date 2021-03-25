@@ -21,8 +21,8 @@ namespace Covid19Radar.Api.Extensions
 		static string GetKeyString(IEnumerable<DiagnosisSubmissionParameter.Key> keys) =>
 			string.Join(",", keys.OrderBy(k => k.KeyData).Select(k => GetKeyString(k)));
 
-		static string GetKeyString(DiagnosisSubmissionParameter.Key k) =>
-			string.Join(".", k.KeyData, k.RollingStartNumber, k.RollingPeriod, k.TransmissionRisk);
+		 static string GetKeyString(DiagnosisSubmissionParameter.Key k) =>
+			string.Join(".", k.KeyData, k.RollingStartNumber, k.RollingPeriod);
 
 		static string GetRegionString(IEnumerable<string> regions) =>
 			string.Join(",", regions.Select(r => r.ToUpperInvariant()).OrderBy(r => r));
@@ -34,4 +34,7 @@ namespace Covid19Radar.Api.Extensions
 			return sha.ComputeHash(textBytes);
 		}
 	}
+
+
+
 }

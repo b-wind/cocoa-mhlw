@@ -13,7 +13,6 @@ namespace Covid19Radar.Api.Services
     {
         private readonly DeviceValidationAndroidService Android;
         private readonly DeviceValidationAppleService Apple;
-
         private readonly IAuthorizedAppRepository AuthApp;
 
         public DeviceValidationService(
@@ -26,6 +25,8 @@ namespace Covid19Radar.Api.Services
             Apple = new DeviceValidationAppleService(config, http, logger);
             AuthApp = authApp;
         }
+
+        protected DeviceValidationService() { }
 
         public async Task<bool> Validation(DiagnosisSubmissionParameter param, DateTimeOffset requestTime)
         {
@@ -40,6 +41,5 @@ namespace Covid19Radar.Api.Services
                 _ => false,
             };
         }
-
     }
 }

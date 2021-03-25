@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -11,7 +10,7 @@ using Acr.UserDialogs;
 using Covid19Radar.Common;
 using Covid19Radar.Model;
 using Covid19Radar.Resources;
-//using Plugin.LocalNotification;
+using Covid19Radar.Services.Logs;
 using Xamarin.Essentials;
 using Xamarin.ExposureNotifications;
 using Xamarin.Forms;
@@ -21,17 +20,14 @@ namespace Covid19Radar.Services
     [Xamarin.Forms.Internals.Preserve] // Ensure this isn't linked out
     public class ExposureNotificationHandler : IExposureNotificationHandler
     {
-        private readonly IHttpDataService httpDataService;
-        private readonly UserDataService userDataService;
-        private UserDataModel userData;
-        private Configuration configuration;
+        private ILoggerService LoggerService => DependencyService.Resolve<ILoggerService>();
+        private IHttpDataService HttpDataService => DependencyService.Resolve<IHttpDataService>();
+        private IExposureNotificationService ExposureNotificationService => DependencyService.Resolve<IExposureNotificationService>();
 
         public ExposureNotificationHandler()
         {
-            this.httpDataService = Xamarin.Forms.DependencyService.Resolve<IHttpDataService>();
-            this.userDataService = Xamarin.Forms.DependencyService.Resolve<UserDataService>();
-            userData = this.userDataService.Get();
-            userDataService.UserDataChanged += (s, e) => userData = userDataService.Get();
+            // Do not initialize the field variables here.
+            LoggerService.Info("Initialized exposuer notification handler");
         }
 
         // this string should be localized
@@ -41,10 +37,15 @@ namespace Covid19Radar.Services
         // this configuration should be obtained from a server and it should be cached locally/in memory as it may be called multiple times
         public Task<Configuration> GetConfigurationAsync()
         {
-            //=> Task.FromResult(configuration);
-            if (Application.Current.Properties.ContainsKey("ExposureNotificationConfigration"))
+            var loggerService = LoggerService;
+            loggerService.StartMethod();
+
+            var configuration = ExposureNotificationService.GetConfiguration();
+            if (configuration != null)
             {
-                return Task.FromResult(Utils.DeserializeFromJson<Configuration>(Application.Current.Properties["ExposureNotificationConfigration"].ToString()));
+                loggerService.Info("Get configuration from cached");
+                loggerService.EndMethod();
+                return Task.FromResult(configuration);
             }
 
             configuration = new Configuration
@@ -61,66 +62,99 @@ namespace Covid19Radar.Services
                 DurationAtAttenuationThresholds = new[] { 50, 70 }
             };
 
-            return Task.FromResult(configuration);
+            loggerService.Info("Get default configuration");
 
+            var defaultConfiguration = Task.FromResult(configuration);
+            loggerService.Info($"configuration: {Utils.SerializeToJson(configuration)}");
 
+            loggerService.EndMethod();
+            return defaultConfiguration;
         }
 
         // this will be called when a potential exposure has been detected
         public async Task ExposureDetectedAsync(ExposureDetectionSummary summary, Func<Task<IEnumerable<ExposureInfo>>> getExposureInfo)
         {
+            var loggerService = LoggerService;
+            loggerService.StartMethod();
+
+            var exposureNotificationService = ExposureNotificationService;
+            var exposureInformationList = exposureNotificationService.GetExposureInformationList() ?? new List<UserExposureInfo>();
 
             UserExposureSummary userExposureSummary = new UserExposureSummary(summary.DaysSinceLastExposure, summary.MatchedKeyCount, summary.HighestRiskScore, summary.AttenuationDurations, summary.SummationRiskScore);
-            userData.ExposureSummary = userExposureSummary;
+
+            loggerService.Info($"ExposureSummary.MatchedKeyCount: {userExposureSummary.MatchedKeyCount}");
+            loggerService.Info($"ExposureSummary.DaysSinceLastExposure: {userExposureSummary.DaysSinceLastExposure}");
+            loggerService.Info($"ExposureSummary.HighestRiskScore: {userExposureSummary.HighestRiskScore}");
+            loggerService.Info($"ExposureSummary.AttenuationDurations: {string.Join(",", userExposureSummary.AttenuationDurations)}");
+            loggerService.Info($"ExposureSummary.SummationRiskScore: {userExposureSummary.SummationRiskScore}");
 
             var config = await GetConfigurationAsync();
 
-            if (userData.ExposureSummary.HighestRiskScore >= config.MinimumRiskScore)
+            if (userExposureSummary.HighestRiskScore >= config.MinimumRiskScore)
             {
                 var exposureInfo = await getExposureInfo();
+                loggerService.Info($"ExposureInfo: {exposureInfo.Count()}");
 
                 // Add these on main thread in case the UI is visible so it can update
                 await Device.InvokeOnMainThreadAsync(() =>
                 {
                     foreach (var exposure in exposureInfo)
                     {
-                        Debug.WriteLine($"C19R found exposure {exposure.Timestamp}");
+                        loggerService.Info($"Exposure.Timestamp: {exposure.Timestamp}");
+                        loggerService.Info($"Exposure.Duration: {exposure.Duration}");
+                        loggerService.Info($"Exposure.AttenuationValue: {exposure.AttenuationValue}");
+                        loggerService.Info($"Exposure.TotalRiskScore: {exposure.TotalRiskScore}");
+                        loggerService.Info($"Exposure.TransmissionRiskLevel: {exposure.TransmissionRiskLevel}");
 
-                        UserExposureInfo userExposureInfo = new UserExposureInfo(exposure.Timestamp, exposure.Duration, exposure.AttenuationValue, exposure.TotalRiskScore, (Covid19Radar.Model.UserRiskLevel)exposure.TransmissionRiskLevel);
-                        userData.ExposureInformation.Add(userExposureInfo);
+                        if (exposure.TotalRiskScore >= config.MinimumRiskScore)
+                        {
+                            UserExposureInfo userExposureInfo = new UserExposureInfo(exposure.Timestamp, exposure.Duration, exposure.AttenuationValue, exposure.TotalRiskScore, (Covid19Radar.Model.UserRiskLevel)exposure.TransmissionRiskLevel);
+                            exposureInformationList.Add(userExposureInfo);
+                        }
                     }
                 });
             }
 
-            await userDataService.SetAsync(userData);
+            exposureInformationList.Sort((a, b) => a.Timestamp.CompareTo(b.Timestamp));
 
-            // If Enabled Local Notifications
-            //if (userData.IsNotificationEnabled)
-            //{
-            //    var notification = new NotificationRequest
-            //    {
-            //        NotificationId = 100,
-            //        Title = AppResources.LocalNotificationTitle,
-            //        Description = AppResources.LocalNotificationDescription
-            //    };
+            loggerService.Info($"Save ExposureSummary. MatchedKeyCount: {userExposureSummary.MatchedKeyCount}");
+            loggerService.Info($"Save ExposureInformation. Count: {exposureInformationList.Count}");
+            exposureNotificationService.SetExposureInformation(userExposureSummary, exposureInformationList);
 
-            //    NotificationCenter.Current.Show(notification);
-            //}
+            loggerService.EndMethod();
         }
+
+        private static int fetchExposureKeysIsRunning = 0;
 
         // this will be called when they keys need to be collected from the server
         public async Task FetchExposureKeyBatchFilesFromServerAsync(Func<IEnumerable<string>, Task> submitBatches, CancellationToken cancellationToken)
         {
-            // This is "default" by default
-            var rightNow = DateTimeOffset.UtcNow;
+            var loggerService = LoggerService;
+
+            if (Interlocked.Exchange(ref fetchExposureKeysIsRunning, 1) == 1)
+            {
+                loggerService.Info("Skipped");
+                return;
+            }
+
+            loggerService.StartMethod();
 
             try
             {
+                // Migrate from UserData.
+                // Since it may be executed during the migration when the application starts, execute it here as well.
+                var userDataService = DependencyService.Resolve<IUserDataService>();
+                await userDataService.Migrate();
+
                 foreach (var serverRegion in AppSettings.Instance.SupportedRegions)
                 {
                     cancellationToken.ThrowIfCancellationRequested();
 
+                    loggerService.Info("Start download files");
                     var (batchNumber, downloadedFiles) = await DownloadBatchAsync(serverRegion, cancellationToken);
+                    loggerService.Info("End to download files");
+                    loggerService.Info($"Batch number: {batchNumber}, Downloaded files: {downloadedFiles.Count}");
+
                     if (batchNumber == 0)
                     {
                         continue;
@@ -128,7 +162,7 @@ namespace Covid19Radar.Services
 
                     if (downloadedFiles.Count > 0)
                     {
-                        Debug.WriteLine("C19R Submit Batches");
+                        loggerService.Info("C19R Submit Batches");
                         await submitBatches(downloadedFiles);
 
                         // delete all temporary files
@@ -138,9 +172,10 @@ namespace Covid19Radar.Services
                             {
                                 File.Delete(file);
                             }
-                            catch
+                            catch (Exception ex)
                             {
                                 // no-op
+                                loggerService.Exception("Fail to delete downloaded files", ex);
                             }
                         }
                     }
@@ -149,12 +184,20 @@ namespace Covid19Radar.Services
             catch (Exception ex)
             {
                 // any expections, bail out and wait for the next time
-                Debug.WriteLine(ex);
+                loggerService.Exception("Fail to download files", ex);
+            }
+            finally
+            {
+                loggerService.EndMethod();
+                Interlocked.Exchange(ref fetchExposureKeysIsRunning, 0);
             }
         }
 
         private async Task<(int, List<string>)> DownloadBatchAsync(string region, CancellationToken cancellationToken)
         {
+            var loggerService = LoggerService;
+            loggerService.StartMethod();
+
             var downloadedFiles = new List<string>();
             var batchNumber = 0;
             var tmpDir = Path.Combine(FileSystem.CacheDirectory, region);
@@ -166,40 +209,39 @@ namespace Covid19Radar.Services
                     Directory.CreateDirectory(tmpDir);
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                loggerService.Exception("Failed to create directory", ex);
+                loggerService.EndMethod();
                 // catch error return batchnumber 0 / fileList 0
                 return (batchNumber, downloadedFiles);
             }
 
-            //long sinceEpochSeconds = new DateTimeOffset(DateTime.UtcNow.AddDays(-14)).ToUnixTimeSeconds();
+            var httpDataService = HttpDataService;
+            var exposureNotificationService = ExposureNotificationService;
+
             List<TemporaryExposureKeyExportFileModel> tekList = await httpDataService.GetTemporaryExposureKeyList(region, cancellationToken);
             if (tekList.Count == 0)
             {
+                loggerService.EndMethod();
                 return (batchNumber, downloadedFiles);
             }
             Debug.WriteLine("C19R Fetch Exposure Key");
 
-            Dictionary<string, long> lastTekTimestamp = userData.LastProcessTekTimestamp;
+            var lastCreated = exposureNotificationService.GetLastProcessTekTimestamp(region);
+            loggerService.Info($"lastCreated: {lastCreated}");
 
+            var newCreated = lastCreated;
             foreach (var tekItem in tekList)
             {
-                long lastCreated = 0;
-                if (lastTekTimestamp.ContainsKey(region))
-                {
-                    lastCreated = lastTekTimestamp[region];
-                }
-                else
-                {
-                    lastTekTimestamp.Add(region, 0);
-                }
-
+                loggerService.Info($"tekItem.Created: {tekItem.Created}");
                 if (tekItem.Created > lastCreated || lastCreated == 0)
                 {
                     var tmpFile = Path.Combine(tmpDir, Guid.NewGuid().ToString() + ".zip");
                     Debug.WriteLine(Utils.SerializeToJson(tekItem));
                     Debug.WriteLine(tmpFile);
 
+                    loggerService.Info($"Download TEK file. url: {tekItem.Url}");
                     using (Stream responseStream = await httpDataService.GetTemporaryExposureKey(tekItem.Url, cancellationToken))
                     using (var fileStream = File.Create(tmpFile))
                     {
@@ -210,72 +252,114 @@ namespace Covid19Radar.Services
                         }
                         catch (Exception ex)
                         {
-                            Debug.WriteLine(ex.ToString());
+                            loggerService.Exception("Fail to copy", ex);
                         }
                     }
-                    lastTekTimestamp[region] = tekItem.Created;
+                    newCreated = tekItem.Created;
                     downloadedFiles.Add(tmpFile);
                     Debug.WriteLine($"C19R FETCH DIAGKEY {tmpFile}");
                     batchNumber++;
                 }
             }
-            Debug.WriteLine($"C19R batchnumber {batchNumber}");
-            Debug.WriteLine($"C19R downloadfiles {downloadedFiles.Count()}");
-            userData.LastProcessTekTimestamp = lastTekTimestamp;
-            await userDataService.SetAsync(userData);
+            loggerService.Info($"Batch number: {batchNumber}, Downloaded files: {downloadedFiles.Count()}");
+
+            exposureNotificationService.SetLastProcessTekTimestamp(region, newCreated);
+            loggerService.Info($"region: {region}, newCreated: {newCreated}");
+
+            loggerService.EndMethod();
+
             return (batchNumber, downloadedFiles);
         }
 
         // this will be called when the user is submitting a diagnosis and the local keys need to go to the server
         public async Task UploadSelfExposureKeysToServerAsync(IEnumerable<TemporaryExposureKey> temporaryExposureKeys)
         {
-            var latestDiagnosis = userData.LatestDiagnosis;
+            var loggerService = LoggerService;
+            loggerService.StartMethod();
 
-            if (latestDiagnosis == null || string.IsNullOrEmpty(latestDiagnosis.DiagnosisUid))
-            {
-                throw new InvalidOperationException();
-            }
+            var exposureNotificationService = ExposureNotificationService;
 
-            var selfDiag = await CreateSubmissionAsync(temporaryExposureKeys, latestDiagnosis);
+            try
+            {
+                loggerService.Info($"TemporaryExposureKey count: {temporaryExposureKeys.Count()}");
+                foreach (var temporaryExposureKey in temporaryExposureKeys)
+                {
+                    loggerService.Info($"TemporaryExposureKey: RollingStart: {temporaryExposureKey.RollingStart}({temporaryExposureKey.RollingStart.ToUnixTimeSeconds()}), RollingDuration: {temporaryExposureKey.RollingDuration}, TransmissionRiskLevel: {temporaryExposureKey.TransmissionRiskLevel}");
+                }
 
-            HttpStatusCode httpStatusCode = await httpDataService.PutSelfExposureKeysAsync(selfDiag);
-            if (httpStatusCode == HttpStatusCode.NotAcceptable)
-            {
-                await UserDialogs.Instance.AlertAsync(
-                    "",
-                    AppResources.ExposureNotificationHandler1ErrorMessage,
-                    Resources.AppResources.ButtonOk);
-                throw new InvalidOperationException();
+                var positiveDiagnosis = exposureNotificationService.PositiveDiagnosis;
+                if (string.IsNullOrEmpty(positiveDiagnosis))
+                {
+                    loggerService.Error($"Diagnostic number is null or empty.");
+                    loggerService.EndMethod();
+                    throw new InvalidOperationException();
+                }
+
+                var selfDiag = await CreateSubmissionAsync(temporaryExposureKeys, positiveDiagnosis);
+                HttpStatusCode httpStatusCode = await HttpDataService.PutSelfExposureKeysAsync(selfDiag);
+                loggerService.Info($"HTTP status is {httpStatusCode}({(int)httpStatusCode}).");
+
+                switch (httpStatusCode)
+                {
+                    case HttpStatusCode.NoContent:
+                        // Success
+                        loggerService.Info("Success send of diagnosis number");
+                        break;
+
+                    case HttpStatusCode.NotAcceptable:
+                        await UserDialogs.Instance.AlertAsync(
+                            "",
+                            AppResources.ExposureNotificationHandler1ErrorMessage,
+                            AppResources.ButtonOk);
+
+                        loggerService.Error($"The diagnostic number is incorrect.");
+                        throw new InvalidOperationException();
+
+                    case HttpStatusCode.InternalServerError:
+                    case HttpStatusCode.ServiceUnavailable:
+                        await UserDialogs.Instance.AlertAsync(
+                            "",
+                            AppResources.ExposureNotificationHandler2ErrorMessage,
+                            AppResources.ButtonOk);
+
+                        loggerService.Error($"Cannot connect to the center.");
+                        throw new InvalidOperationException();
+
+                    case HttpStatusCode.BadRequest:
+                        await UserDialogs.Instance.AlertAsync(
+                            "",
+                            AppResources.ExposureNotificationHandler3ErrorMessage,
+                            Resources.AppResources.ButtonOk);
+
+                        loggerService.Error($"There is a problem with the record data.");
+                        throw new InvalidOperationException();
+
+                    default:
+                        loggerService.Error($"Unexpected status");
+                        throw new Exception("Unexpected status");
+                }
             }
-            else if (httpStatusCode == HttpStatusCode.ServiceUnavailable || httpStatusCode == HttpStatusCode.InternalServerError)
+            finally
             {
-                await UserDialogs.Instance.AlertAsync(
-                    "",
-                    AppResources.ExposureNotificationHandler2ErrorMessage,
-                    Resources.AppResources.ButtonOk);
-                throw new InvalidOperationException();
+                exposureNotificationService.PositiveDiagnosis = null;
+                loggerService.EndMethod();
             }
-            else if (httpStatusCode == HttpStatusCode.BadRequest)
-            {
-                await UserDialogs.Instance.AlertAsync(
-                    "",
-                    AppResources.ExposureNotificationHandler3ErrorMessage,
-                    Resources.AppResources.ButtonOk);
-                throw new InvalidOperationException();
-            }
-            await userDataService.SetAsync(userData);
         }
 
-
-        private async Task<DiagnosisSubmissionParameter> CreateSubmissionAsync(IEnumerable<TemporaryExposureKey> temporaryExposureKeys, PositiveDiagnosisState pendingDiagnosis)
+        private async Task<DiagnosisSubmissionParameter> CreateSubmissionAsync(IEnumerable<TemporaryExposureKey> temporaryExposureKeys, string positiveDiagnosis)
         {
+            var loggerService = LoggerService;
+            loggerService.StartMethod();
+
+            // Filter Temporary exposure keys
+            var filteredTemporaryExposureKeys = ExposureNotificationService.FliterTemporaryExposureKeys(temporaryExposureKeys);
+
             // Create the network keys
-            var keys = temporaryExposureKeys.Where(k => k.RollingStart > DateTimeOffset.UtcNow.Date.AddDays(AppConstants.OutOfDateDays)).Select(k => new DiagnosisSubmissionParameter.Key
+            var keys = filteredTemporaryExposureKeys.Select(k => new DiagnosisSubmissionParameter.Key
             {
                 KeyData = Convert.ToBase64String(k.Key),
                 RollingStartNumber = (uint)(k.RollingStart - DateTime.UnixEpoch).TotalMinutes / 10,
                 RollingPeriod = (uint)(k.RollingDuration.TotalMinutes / 10),
-                TransmissionRisk = (int)k.TransmissionRiskLevel
             });
 
             var beforeKey = Utils.SerializeToJson(temporaryExposureKeys.ToList());
@@ -285,6 +369,8 @@ namespace Covid19Radar.Services
 
             if (keys.Count() == 0)
             {
+                loggerService.Error($"Temporary exposure keys is empty.");
+                loggerService.EndMethod();
                 throw new InvalidDataException();
             }
 
@@ -294,13 +380,12 @@ namespace Covid19Radar.Services
             // Create the submission
             var submission = new DiagnosisSubmissionParameter()
             {
-                UserUuid = userData.UserUuid,
                 Keys = keys.ToArray(),
                 Regions = AppSettings.Instance.SupportedRegions,
                 Platform = DeviceInfo.Platform.ToString().ToLowerInvariant(),
                 DeviceVerificationPayload = null,
                 AppPackageName = AppInfo.PackageName,
-                VerificationPayload = pendingDiagnosis.DiagnosisUid,
+                VerificationPayload = positiveDiagnosis,
                 Padding = padding
             };
 
@@ -309,8 +394,12 @@ namespace Covid19Radar.Services
             {
                 submission.DeviceVerificationPayload = await verifier?.VerifyAsync(submission);
             }
-            return submission;
 
+            loggerService.Info($"DeviceVerificationPayload is {(string.IsNullOrEmpty(submission.DeviceVerificationPayload) ? "null or empty" : "set")}.");
+            loggerService.Info($"VerificationPayload is {(string.IsNullOrEmpty(submission.VerificationPayload) ? "null or empty" : "set")}.");
+
+            loggerService.EndMethod();
+            return submission;
         }
 
         private string GetPadding()

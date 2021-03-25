@@ -5,17 +5,11 @@ using Prism;
 using Prism.Ioc;
 using Android.Runtime;
 using Android.Content;
-using Covid19Radar.Model;
-using System.Collections.Generic;
-using System.Linq;
-using System;
-using Covid19Radar.Common;
-using Covid19Radar.Droid.Services;
-using Covid19Radar.Services;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+using Covid19Radar.Droid.Services.Logs;
+using Covid19Radar.Services.Logs;
 using Acr.UserDialogs;
-using Covid19Radar.Renderers;
+using Covid19Radar.Services;
+using Covid19Radar.Droid.Services;
 //using Plugin.LocalNotification;
 
 namespace Covid19Radar.Droid
@@ -32,6 +26,7 @@ namespace Covid19Radar.Droid
             base.SetTheme(Resource.Style.MainTheme);
             base.OnCreate(savedInstanceState);
 
+            Xamarin.Forms.Forms.SetFlags("RadioButton_Experimental");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
@@ -59,7 +54,10 @@ namespace Covid19Radar.Droid
         {
             public void RegisterTypes(IContainerRegistry containerRegistry)
             {
-                
+                // Services
+                containerRegistry.RegisterSingleton<ILogPathDependencyService, LogPathServiceAndroid>();
+                containerRegistry.RegisterSingleton<ISecureStorageDependencyService, SecureStorageServiceAndroid>();
+                containerRegistry.RegisterSingleton<IPreferencesService, PreferencesService>();
             }
         }
 
