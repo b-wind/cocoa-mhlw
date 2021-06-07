@@ -1,0 +1,21 @@
+name: Fork Sync
+
+on:
+  schedule:
+    - cron: '0 0,6,12,18 * * *' # every 6 hours
+  workflow_dispatch: # on button click
+
+jobs:
+  sync:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: tgymnich/fork-sync@v1.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          owner: cocoa-mhlw
+          base: develop
+          head: develop
+          auto_approve: true
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
