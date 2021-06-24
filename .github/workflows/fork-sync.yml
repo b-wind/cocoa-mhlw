@@ -13,9 +13,8 @@ jobs:
     steps:
       - uses: tgymnich/fork-sync@v1.4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_TOKEN }}
           owner: cocoa-mhlw
           base: main
           head: main
           auto_approve: true
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
