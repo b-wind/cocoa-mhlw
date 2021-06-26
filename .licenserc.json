@@ -3,5 +3,11 @@
         "This Source Code Form is subject to the terms of the Mozilla Public",
         "License, v. 2.0. If a copy of the MPL was not distributed with this",
         "file, You can obtain one at https://mozilla.org/MPL/2.0/."
+    ],
+
+    "ignore": [
+        "Covid19Radar/Xamarin.ExposureNotification/",
+        "Covid19Radar/Tests/Covid19Radar.UITest/",
+        "src/Covid19Radar.Api.Tests"
     ]
 }
