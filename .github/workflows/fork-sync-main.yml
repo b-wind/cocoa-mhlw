@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: tgymnich/fork-sync@v1.5
         with:
+          pr_title: Fork Sync main branch
           token: ${{ secrets.PERSONAL_TOKEN }}
           owner: cocoa-mhlw
           base: main
